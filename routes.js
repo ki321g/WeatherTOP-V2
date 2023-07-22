@@ -3,6 +3,7 @@ import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { stationController } from "./controllers/station-controller.js";
 import { welcomeController } from "./controllers/welcome-controller.js";
+import { catchAllController } from "./controllers/catch-all-controller.js";
 //import { handlebarsHelpers } from "./helpers/handlebars-helpers.js";
 
 export const router = express.Router();
@@ -13,3 +14,5 @@ router.post("/dashboard/addstation", dashboardController.addStation);
 router.get("/about", aboutController.index);
 router.get("/station/:id", stationController.index);
 router.post("/station/:id/addreading", stationController.addReading);
+
+router.get("*", catchAllController.index);
