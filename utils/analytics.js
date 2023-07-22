@@ -13,13 +13,16 @@ export const latestReadings = async (id) => {
     latestWindSpeed: null,
     latestWindSpeedBFT: null,
     windSpeedLabel: null,
+    windDirection: null,
+    windDirectionLabel: null,
+    windDirectionIcon: null,
     latestPressure: null,
     readingsRecorded: 0,
   };
   if (stationReadings.length > 0) {
     latestReading = stationReadings.length - 1;
     reading.latestCode = stationReadings[latestReading].code;
-    reading.latestCodeLabel = conversions.codeLablel(reading.latestCode);
+    reading.latestCodeLabel = conversions.codeLabel(reading.latestCode);
     reading.latestTemp = stationReadings[latestReading].temperature;
     reading.latestTempFahrenheit = conversions.convertToFahrenheit(reading.latestTemp);
     reading.minTemp = minMaxReadings(stationReadings, "temperature", "min");
@@ -29,6 +32,10 @@ export const latestReadings = async (id) => {
     reading.windSpeedLabel = conversions.windSpeedLabel(reading.latestWindSpeedBFT);
     reading.minWindSpeed = minMaxReadings(stationReadings, "windSpeed", "min");
     reading.maxWindSpeed = minMaxReadings(stationReadings, "windSpeed", "max");
+    reading.windDirection = stationReadings[latestReading].windDirection;
+    reading.windDirectionLabel = conversions.convertDegreeToDirection(stationReadings[latestReading].windDirection, "text");
+    reading.windDirectionIcon = conversions.convertDegreeToDirection(stationReadings[latestReading].windDirection, "icon");
+    reading.WindChill = conversions.calculateWindChill(reading.latestTemp, reading.latestWindSpeed);
     reading.latestPressure = stationReadings[latestReading].pressure;
     reading.minPressure = minMaxReadings(stationReadings, "pressure", "min");
     reading.maxPressure = minMaxReadings(stationReadings, "pressure", "max");

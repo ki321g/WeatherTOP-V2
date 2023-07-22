@@ -65,6 +65,7 @@ export const readingStore = {
     reading.code = updatedReading.code;
     reading.temp = updatedReading.temp;
     reading.windSpeed = updatedReading.windSpeed;
+    reading.windDirection = updatedReading.windDirection;
     reading.pressure = updatedReading.pressure;
     await db.write();
   },
