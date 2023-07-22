@@ -1,5 +1,5 @@
 {
-  "name": "WeatherTOP",
+  "name": "weathertop",
   "version": "0.0.1",
   "description": "WeatherTOP Application",
   "main": "server.js",
