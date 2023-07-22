@@ -1,0 +1,17 @@
+{
+  "file": "./models/stations.json",
+  "stations": [
+    {
+      "name": "Tramore",
+      "_id": "f9a520cd-1df8-40f2-b0a7-8cb80b29f7c9"
+    },
+    {
+      "name": "Dunmore",
+      "_id": "27806d91-9e8e-4e60-b04d-5368fa490aab"
+    },
+    {
+      "name": "wexford",
+      "_id": "efe30fa8-23f7-4bb5-b0e6-52918122a7ab"
+    }
+  ]
+}

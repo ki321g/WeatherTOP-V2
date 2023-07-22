@@ -1,0 +1,85 @@
+.hero.welcome.is-info{
+	background: #2160c4 !important;
+	background: -webkit-linear-gradient(to right, #5b86e5, #2160c4) !important;
+	background: linear-gradient(to right, #5b86e5, #2160c4) !important;
+}
+.hero.welcome .title,
+.hero.welcome .subtitle {
+	color: hsl(192, 17%, 99%);
+}
+
+.info-tiles .subtitle {
+	font-weight: 300;
+	color: #8f99a3;
+}
+
+table,
+td,
+th {
+	border: 1px solid #ddd;
+	padding: 5px;
+}
+
+.main-navbar:hover {
+	background: hsl(207, 61%, 48%) !important;
+}
+
+.gradient-background {
+	background: #2160c4 !important;
+	background: -webkit-linear-gradient(to right, #5b86e5, #2160c4) !important;
+	background: linear-gradient(to right, #5b86e5, #2160c4) !important;
+}
+
+.weather-box {
+	height: 100%;
+}
+
+.celsius {
+	margin-left: -20px !important;
+	margin-top: 0px !important;
+}
+.fahrenheit{
+	margin-left: -10px !important;
+	margin-top: 0px !important;
+}
+
+.temperatureChart:hover,
+.windSpeedChart:hover,
+.pressureChart:hover
+{
+	property-name: hsl(48, 100%, 67%);
+}
+
+:root {
+	--ratio: 2;
+}
+dialog {
+	border: 3px solid hsl(0, 0%, 48%);
+	border-radius: calc(5px * var(--ratio));
+	padding: 0px !important;
+}
+
+/*======================
+    Flash Notifications
+=======================*/
+.flash-notification {
+	position: absolute;
+	z-index: 1;
+}
+/*======================
+    404 page
+=======================*/
+.page_404  img{ width:100%;}
+
+.four_zero_four_bg{
+	background-image: url(/public/images/404.gif);
+	height: 400px;
+	background-position: center;
+}
+.button_404 {
+	padding-top: 270px;
+}
+.custom_404 #routes {
+	background: #ffffff !important;
+}
+

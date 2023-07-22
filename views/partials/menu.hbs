@@ -1,0 +1,70 @@
+<!-- NAVBAR-->
+<nav class="navbar is-fixed-top has-shadow is-info">
+  <!-- NavBar Container -->
+  <div class="container">
+    <!-- Logo Brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="../images/weathertop.svg" alt="Site Logo" style="max-height: 50px;" class="py-2 px-2" />
+      </a>
+
+      <a role="button" class="navbar-burger is-large" id="burger">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- Logo Brand End -->
+
+    <!-- NavBar Items -->
+    <div class="navbar-menu has-background-info" id="nav-links">
+      <!-- NavBar Start -->
+      <div class="navbar-start is-uppercase mr-4">
+        <a id="home" class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar" href="/">
+          Home
+        </a>
+        <!--
+          <a id="stations" class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar" href="/stations">
+          Stations
+        </a>
+        -->
+        <a
+          id="dashboard"
+          class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar"
+          href="/dashboard"
+        >
+          Dashboard
+        </a>
+        <a id="about" class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar" href="/about">
+          About
+        </a>
+      </div>
+      <!-- NavBar Start End -->
+      <!-- NavBar End -->
+      <!-- Login/Signup Buttons -->
+      <!-- 
+      <div class="navbar-end mr-4">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="/signup" class="button is-danger">
+              <strong>Sign up</strong>
+            </a>
+            <a href="/login" class="button is-light">
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+      -->
+      <!-- Login/Signup Buttons End -->
+      <!-- NavBar End End -->
+    </div>
+    <!-- NavBar Items End -->
+  </div>
+  <!-- NavBar Container End-->
+</nav>
+<!-- NAVBAR End-->
+
+<script>
+  document.getElementById("{{active}}").classList.add("has-background-info-dark"); document.getElementById("{{active}}").classList.add("has-text-grey-lighter");
+</script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="has-navbar-fixed-top">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{name}}</title>
+    <!-- FAVICON --->
+    <link rel="icon" type="image/png" href="../images/favicon.png">
+    <!-- Bulma Version 0.9.4-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+
+    <script src="https://kit.fontawesome.com/dd084b05a9.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+    <!-- Google Charts-->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+        google.charts.load('current', {'packages': ['corechart']});
+    </script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<!-- Start -->
+<section class="is-fullheight is-flex is-flex-direction-column">
+    <!-- Content Start -->
+    {{{body}}}
+    <!-- Content End -->
+    <!-- Footer -->
+    <div class="container is-fluid p-0">
+        <footer class="footer has-background-white pt-0 pb-6">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-4"></div>
+                    <div class="column is-4 has-text-centered is-hidden-mobile">
+                        <large>
+                            <span class="has-text-grey">Copyright 2023 &copy;</span><span
+                                class="has-text-grey has-text-weight-bold is-uppercase">Weather</span><span
+                                class="has-text-warning is-uppercase">Top</span> <span class="has-text-grey">Inc.</span>
+                        </large>
+                    </div>
+                    <div class="column is-4"></div>
+                </div>
+            </div>
+        </footer>
+</section>
+<!-- End -->
+<!-- Custom JS Scripts -->
+<script async type="text/javascript" src="../js/main.js"></script>
+</body>
+</html>

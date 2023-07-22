@@ -1,0 +1,199 @@
+<!-- Weather Info Tiles -->
+
+<section class="section px-5 py-0">
+    <div class="container">
+        <div class="columns is-multiline">
+            <div class="column is-5-desktop is-full-tablet">
+                {{> weatherwidget}}
+            </div>
+            <div class="column">
+
+                <!-- READINGS & STATS -->
+                <div class="columns">
+                    <div class="column is-flex is-7-desktop">
+                        <!-- Box in the left column -->
+                        <div class="card events-card" style="height:100%; width: 100%;">
+                            <header class="card-header has-background-dark">
+                                <p class="card-header-title is-centered  is-uppercase has-text-white">
+                                    Latest Reading
+                                </p>
+                            </header>
+                            <div class="card-content">
+                                <div class="content">
+                                    <div class="table-container is-fullwidth">
+                                        <table class="table is-fullwidth">
+                                            <tbody>
+                                            <tr>
+                                                <td class="set-width has-background-dark has-text-centered has-text-white is-vcentered is-uppercase has-text-weight-bold p-0"
+                                                    style="width: 15%;">
+                                                    <img src="../images/weathericons/weather-{{latestCode}}.svg"
+                                                         alt="weather">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-dark has-text-white is-vcentered is-uppercase has-text-weight-bold pl-0"
+                                                        style="width: 25%;">Code
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    {{latestCode}} -
+                                                    {{latestCodeLabel}}
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                        class="set-width has-background-dark has-text-centered has-text-white is-vcentered is-uppercase has-text-weight-bold p-0"
+                                                        style="width: 10%;">
+                                                    <img src="../images/weathericons/thermometer.svg"
+                                                         alt="temperature">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-dark has-text-white is-vcentered is-uppercase has-text-weight-bold pl-0"
+                                                        style="width: 30%;">Temperature
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    {{latestTemp}} &#176C or                                                     {{latestTempFahrenheit}} &#176F
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                        class="set-width has-background-dark has-text-centered has-text-white is-vcentered is-uppercase has-text-weight-bold p-0"
+                                                        style="width: 10%;">
+                                                    <img src="../images/weathericons/wind-beaufort-{{latestWindSpeedBFT}}.svg"
+                                                         alt="wind">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-dark has-text-white is-vcentered is-uppercase has-text-weight-bold pl-0"
+                                                        style="width: 30%;">Wind
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    {{latestWindSpeed}} km/hr or {{latestWindSpeedBFT}} bft <br>
+                                                    {{windSpeedLabel}}<br>
+                                           <br><br><!--
+                                                    Feels Like: windChill&#176C<br>
+                                                    Direction: windDir
+                                             -->
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td
+                                                        class="set-width has-background-dark has-text-centered has-text-white is-vcentered is-uppercase has-text-weight-bold p-0"
+                                                        style="width: 10%;">
+                                                    <img src="../images/weathericons/barometer.svg" alt="pressure">
+                                                </td>
+                                                <td
+                                                        class="set-width has-background-dark has-text-white is-vcentered is-uppercase has-text-weight-bold pl-0"
+                                                        style="width: 30%;">Pressure
+                                                </td>
+                                                <td class="is-vcentered" style="width: 60%;">
+                                                    {{latestPressure}} hPa
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card events-card mb-5">
+                            <header class="card-header has-background-dark">
+                                <p class="card-header-title is-centered  is-uppercase has-text-white">
+                                    Temperature Stats/Trends
+                                </p>
+                            </header>
+                            <div class="card-content p-4">
+                                <div class="content">
+                                    <div class="columns is-flex">
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                               {{minTemp}}
+                                            </div>
+                                            <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                                        </div>
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                <img src="../images/weathericons/thermometer-higher.svg"
+                                                     alt="temperature" style="max-height: 50px;">
+                                            </div>
+                                        </div>
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                {{maxTemp}}
+                                            </div>
+                                            <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card events-card mb-5">
+                            <header class="card-header has-background-dark">
+                                <p class="card-header-title is-centered is-uppercase has-text-white">
+                                    Wind Speed Stats/Trends
+                                </p>
+                            </header>
+                            <div class="card-content p-4">
+                                <div class="content">
+                                    <div class="columns is-flex">
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                {{minWindSpeed}}
+                                            </div>
+                                            <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                                        </div>
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                <img src="../images/weathericons/higher.svg"
+                                                     alt="wind speed" style="max-height: 50px;">
+                                            </div>
+                                        </div>
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                               {{maxWindSpeed}}
+                                            </div>
+                                            <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card events-card mb-1">
+                            <header class="card-header has-background-dark">
+                                <p class="card-header-title is-centered is-uppercase has-text-white">
+                                    Pressure Stats/Trends
+                                </p>
+                            </header>
+                            <div class="card-content p-4">
+                                <div class="content">
+                                    <div class="columns is-flex">
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                {{minPressure}}
+                                            </div>
+                                            <div class="is-size-6 has-text-weight-bold is-uppercase">Min</div>
+                                        </div>
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                <img src="../images/weathericons/higher.svg"
+                                                     alt="pressure" style="max-height: 50px;">
+                                            </div>
+                                        </div>
+                                        <div class="column is-one-third has-text-centered py-0">
+                                            <div class="is-size-4 has-text-weight-bold">
+                                                {{maxPressure}}
+                                            </div>
+                                            <div class="is-size-6 has-text-weight-bold is-uppercase">Max</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- READINGS & STATS END -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Weather Info Tiles End -->

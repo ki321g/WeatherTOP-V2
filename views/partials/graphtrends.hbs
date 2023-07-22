@@ -1,0 +1,57 @@
+{{> graphtrendsjs}}
+<div id="googleCharts"  class="section px-5 py-2">
+    <div class="table-container is-fullwidth">
+        <table class="table is-bordered  is-fullwidth">
+            <thead>
+            <th class="has-background-dark has-text-white has-text-weight-bold has-text-centered is-uppercase p-3"
+                colspan="5">Weather Trends & Graphs
+            </th>
+            </thead>
+            <tbody>
+            <tr>
+                <td id="temperatureChart" href="#" onclick="showChart(1)"
+                    class="is-clickable has-background-dark has-text-white has-text-weight-bold has-text-centered is-uppercase p-6"
+                    style="width: 20%;">
+                    Temperature
+                </td>
+                <td rowspan="1" class="is-vcentered has-text-weight-bold has-text-centered is-uppercase is-info p-0"
+                    style="width: 25%;">
+                    <!-- Chart Label-->
+                    <div id="chartLabel" class="is-size-3"></div>
+                </td>
+                <td rowspan="5" class="is-vcentered p-0" style="height:200px;">
+                    <!-- GOOGLE Chart-->
+                    <div id="chart" style="width: 100%; height: 100%;"></div>
+                </td>
+            </tr>
+            <tr>
+                <td id="windSpeedChart" href="#" onclick="showChart(2)"
+                    class="is-clickable has-background-dark has-text-white has-text-weight-bold has-text-centered is-uppercase p-6">
+                    Wind Speed
+                </td>
+                <td rowspan="2" class="is-vcentered has-text-weight-bold has-text-centered is-uppercase p-0"
+                    style="width: 15%;">
+                    <!-- TREND ARROWS-->
+                    <div class="is-size-4">
+                        <div id="chartTrend" class="is-size-4 has-text-weight-bold">
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td id="pressureChart" href="#" onclick="showChart(3)"
+                    class="is-clickable has-background-dark has-text-white has-text-weight-bold has-text-centered is-uppercase p-6">
+                    Pressure
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+window.addEventListener("load", (event) => {
+    console.log("page is fully loaded");
+    showChart(1);
+});
+</script>

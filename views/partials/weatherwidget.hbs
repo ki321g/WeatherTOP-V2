@@ -1,0 +1,90 @@
+<!-- Weather Widget Start -->
+
+<div class="box has-background-dark weather-box pb-3">
+  <div class="columns is-gapless is-multiline is-mobile has-text-white">
+    <div class="column is-full mb-0">
+      <div class="columns is-mobile is-gapless is-vcentered">
+        <div class="column is-half is-one-thirds-mobile">
+          <!-- content for the Station name -->
+          <h4
+            class="title is-size-3-desktop is-size-5-mobile is-size-5-tablet is-uppercase has-text-weight-bold has-text-white"
+          >
+            {{name}}{{station.name}}</h4>
+        </div>
+        <div class="column">
+          <div class="column has-text-weight-bold has-text-right p-0">
+            <!-- content for the Latitude -->
+            Latitude:
+          </div>
+          <div class="column has-text-weight-bold has-text-right p-0">
+            <!-- content for Longitude -->
+            Longitude:
+          </div>
+        </div>
+        <div class="column">
+          <div class="column has-text-weight-bold has-text-right py-0 px-2">
+            <!-- content for the Latitude -->
+            lat
+            <!-- 52.162 -->
+          </div>
+          <div class="column has-text-weight-bold has-text-right py-0 px-2">
+            <!-- content for Longitude -->
+            long
+            <!-- -7.152 -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--    <div class="column is-one-quarter"></div>   -->
+    <div class="column is-one-third has-text-centered">
+      <hr class="mt-1 mb-0" />
+      <img src="../images/weathericons/weather-{{latestCode}}.svg" alt="weather" style="max-height: 180px;" class="" />
+    </div>
+    <div class="column is-one-third has-text-centered">
+      <hr class="mt-1 mb-0" />
+      <img src="../images/weathericons/compass-NW.svg" alt="wind direction" style="max-height: 180px;" class="" />
+    </div>
+    <div class="column is-one-third has-text-centered">
+      <hr class="mt-1 mb-0" />
+      <img
+        src="../images/weathericons/wind-beaufort-{{latestWindSpeedBFT}}.svg"
+        alt="wind speed"
+        style="max-height: 180px;"
+        class=""
+      />
+    </div>
+    <div class="column is-one-third is-size-6-mobile is-size-5 has-text-weight-bold has-text-centered">
+      <p>{{latestCodeLabel}}</p>
+
+    </div>
+    <div class="column is-one-third is-size-6-mobile is-size-5 has-text-weight-bold has-text-centered">
+      <p>windDir</p>
+
+    </div>
+    <div class="column is-one-third is-size-6-mobile is-size-5 has-text-weight-bold has-text-centered">
+      <p>{{windSpeedLabel}}</p>
+
+    </div>
+    <div class="column is-12 has-text-centered">
+      <hr class="mt-1 mb-0" />
+    </div>
+    <div class="column is-half has-text-centered has-text-weight-bold">
+      <div class="is-size-2 is-flex is-vcentered is-justify-content-center">
+        {{latestTemp}}<!--&#176C-->
+        <img class="celsius" src="../images/weathericons/thermometer-celsius.svg" style="max-height: 60px;" />
+      </div>
+      <div class="is-flex is-vcentered is-justify-content-center is-size-4">
+        {{latestTempFahrenheit}}<!--&#176F-->
+        <img class="fahrenheit" src="../images/weathericons/thermometer-fahrenheit.svg" style="max-height: 40px;" />
+      </div>
+    </div>
+    <div class="column is-half has-text-centered has-text-weight-bold">
+      <div class="is-size-2 is-flex is-vcentered is-justify-content-center">
+        {{latestPressure}}
+      </div>
+      <div class="is-size-4">hPa</div>
+    </div>
+  </div>
+</div>
+
+<!-- Weather Widget End -->

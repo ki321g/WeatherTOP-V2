@@ -1,0 +1,61 @@
+<!-- NAVBAR-->
+<nav class="navbar is-fixed-top has-shadow is-info">
+  <!-- NavBar Container -->
+  <div class="container">
+    <!-- Logo Brand -->
+    <div class="navbar-brand">
+      <a class="navbar-item" href="/">
+        <img src="/public/images/weathertop.svg" alt="Site Logo" style="max-height: 50px;" class="py-2 px-2" />
+      </a>
+
+      <a role="button" class="navbar-burger is-large" id="burger">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <!-- Logo Brand End -->
+
+    <!-- NavBar Items -->
+    <div class="navbar-menu has-background-info" id="nav-links">
+      <!-- NavBar Start -->
+      <div class="navbar-start is-uppercase mr-4">
+        <a
+          id="dashboard"
+          class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar"
+          href="/dashboard"
+        >
+          Dashboard
+        </a>
+        <!--    <a id="stationsummary" class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar"
+                   href="/stationsummary">
+                    Station Summary
+                </a> -->
+        <a id="profile" class="navbar-item has-text-white has-text-weight-bold is-size-5 main-navbar" href="/profile">
+          Profile
+        </a>
+      </div>
+      <!-- NavBar Start End -->
+      <!-- NavBar End -->
+      <!-- Login/Signup Buttons -->
+      <div class="navbar-end mr-4">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a href="/logout" class="button is-light">
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Login/Signup Buttons End -->
+      <!-- NavBar End End -->
+    </div>
+    <!-- NavBar Items End -->
+  </div>
+  <!-- NavBar Container End-->
+</nav>
+<!-- NAVBAR End-->
+
+<script>
+  document.getElementById("{{active}}").classList.add("has-background-info-dark"); document.getElementById("{{active}}").classList.add("has-text-grey-lighter");
+</script>

@@ -1,0 +1,136 @@
+<script>
+    function showChart(chartNumber) {
+        var chartData = getChartData(chartNumber);
+        var chartOptions = getChartOptions(chartNumber);
+        var chart = getChartType(chartNumber);
+
+        setChartLabel(chartNumber);
+        chart.draw(chartData, chartOptions);
+    }
+    function getChartType(chartNumber) {
+        if (chartNumber == 1 || chartNumber == 2 || chartNumber == 3) {
+            var chart = new google.visualization.AreaChart(document.getElementById("chart"));
+        }
+        return chart
+    }
+    function getChartData(chartNumber) {
+        // Code to get chart data based on chartNumber .
+
+        if (chartNumber == 1) {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Temperature');
+
+            #{list items:_station.readings, as:'reading'}
+            data.addRow(["${reading.getDateTime()}", ${reading.fahrenheit()}]);
+            #{/list}
+
+            // format tooltip
+            for (var i = 0; i < data.getNumberOfRows(); i++) {
+                var temperature = data.getValue(i, 1);
+                data.setFormattedValue(i, 1, temperature + ' ' + String.fromCharCode(176)+ 'F');
+            }
+            return data;
+        }
+
+        if (chartNumber == 2) {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Wind Speed');
+
+            #{list items:_station.readings, as:'reading'}
+            data.addRow(["${reading.getDateTime()}", ${reading.beaufort()}]);
+            #{/list}
+
+            // format tooltip
+            for (var i = 0; i < data.getNumberOfRows(); i++) {
+                var beaufort = data.getValue(i, 1);
+                data.setFormattedValue(i, 1, beaufort + ' bft');
+            }
+            return data;
+        }
+
+        if (chartNumber == 3) {
+            // Create and populate the data table.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Date');
+            data.addColumn('number', 'Pressure');
+
+            #{list items:_station.readings, as:'reading'}
+            data.addRow(["${reading.getDateTime()}", ${reading.getPressure()}]);
+            #{/list}
+
+            // format tooltip
+            for (var i = 0; i < data.getNumberOfRows(); i++) {
+                var pressure = data.getValue(i, 1);
+                data.setFormattedValue(i, 1, pressure + ' hPa');
+            }
+            return data;
+        }
+    }
+    function getChartOptions(chartNumber) {
+        // Code to get chart options based on chartNumber
+        if (chartNumber == 1) {
+            var options = {
+                legend: {position: 'none'},
+                theme: 'material',
+                vAxis: {
+                    title: 'Temperature'
+                },
+                hAxis: {
+                    title: 'Date'
+                }
+            };
+        }
+
+        if (chartNumber == 2) {
+            var options = {
+                legend: {position: 'none'},
+                theme: 'material',
+                vAxis: {
+                    title: 'Wind Speed'
+                },
+                hAxis: {
+                    title: 'Date'
+                }
+            };
+        }
+
+        if (chartNumber == 3) {
+            var options = {
+                legend: {position: 'none'},
+                theme: 'material',
+                vAxis: {
+                    title: 'Pressure'
+                },
+                hAxis: {
+                    title: 'Date'
+                }
+            };
+        }
+        return options;
+    }
+    function setChartLabel(chartNumber) {
+        switch (chartNumber) {
+            case 1:
+                document.getElementById("chartLabel").innerHTML = "Temperature";
+                document.getElementById("chartTrend").innerHTML = "<img src='/public/images/weathericons/thermometer-${_station.temperatureTrend}.svg' alt='temperature' style='max-height: 150px;'>"
+                break;
+            case 2:
+                document.getElementById("chartLabel").innerHTML = "Wind Speed";
+                document.getElementById("chartTrend").innerHTML = "<img src='/public/images/weathericons/${_station.windSpeedTrend}.svg' alt='wind speed' style='max-height: 150px;'>"
+                break;
+            case 3:
+                document.getElementById("chartLabel").innerHTML = "Pressure";
+                document.getElementById("chartTrend").innerHTML = "<img src='/public/images/weathericons/${_station.pressureTrend}.svg' alt='pressure' style='max-height: 150px;'>"
+                break;
+            case 4:
+                document.getElementById("chartLabel").innerHTML = "Wind Direction";
+                break;
+            default:
+                document.getElementById("chartLabel").innerHTML = "None";
+        }
+    }
+</script>
