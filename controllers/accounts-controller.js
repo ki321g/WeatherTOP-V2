@@ -31,11 +31,12 @@ export const accountsController = {
     const user = request.body;
 
     const checkUser = await userStore.getUserByEmail(user.email);
-    if (!checkUser && user.password.length >= 7) {  
+    if (!checkUser && user.password.length >= 7) {
       await userStore.addUser(user);
       console.log(`registering ${user.email}`);
-      console.log("Member Account Created Successfully!");      
-      response.redirect("/");
+      console.log("Member Account Created Successfully!");
+      response.cookie("LoggedInUser", user.email);
+      response.redirect("/dashboard");
     } else if (user.password.length >= 7) {
       const viewData = {
         signupFail: "Signup failed, Email Already In Use!",
@@ -48,7 +49,7 @@ export const accountsController = {
       };
       console.log(viewData.signupFail);
       response.render("signup-view", viewData);
-    }    
+    }
   },
 
   async authenticate(request, response) {
@@ -62,7 +63,7 @@ export const accountsController = {
       response.cookie("LoggedInUser", user.email);
       console.log("Authentication Successful");
       response.redirect("/dashboard");
-    } else if (!user) { 
+    } else if (!user) {
       const viewData = {
         loginFail: "Authentication failed, Email entered is not a current member, please register!",
       };
@@ -84,7 +85,7 @@ export const accountsController = {
   },
 
   async getLoggedInUser(request) {
-    const userEmail = request.cookies.playlist;
+    const userEmail = request.cookies.LoggedInUser;
     return await userStore.getUserByEmail(userEmail);
   },
 };
