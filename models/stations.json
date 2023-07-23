@@ -3,14 +3,20 @@
   "stations": [
     {
       "name": "Tramore",
+      "latitude": "52.161435",
+      "longitude": "-7.149295",
       "_id": "f9a520cd-1df8-40f2-b0a7-8cb80b29f7c9"
     },
     {
       "name": "Dunmore",
+      "latitude": "53.618016",
+      "longitude": "-8.744146",
       "_id": "27806d91-9e8e-4e60-b04d-5368fa490aab"
     },
     {
       "name": "wexford",
+      "latitude": "52.339161",
+      "longitude": "--6.460125",
       "_id": "efe30fa8-23f7-4bb5-b0e6-52918122a7ab"
     }
   ]

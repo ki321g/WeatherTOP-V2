@@ -1,0 +1,101 @@
+{{> menu active="sign up"}}
+
+<!-- Sign up Start -->
+<!-- Content Start -->
+<section class="section pt-5 pb-3">
+    <div class="container">
+        <!-- Hero Welcome User -->
+        <section class="hero is-info welcome is-small">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title is-size-3">
+                        <span class="has-text-white has-text-weight-bold is-uppercase">Weather</span><span
+                            class="has-text-warning is-uppercase">Top</span>
+                        <span class="has-text-white has-text-weight-bold is-uppercase">APP Sign up</span>
+                    </h1>
+                </div>
+            </div>
+        </section>
+        <!-- Hero Welcome User End-->
+        <!-- SignUP Start -->
+        <div class="container mt-4" style="max-width:800px;">
+            <div class="box">
+                <div class="columns">
+                    <div class="column is-two-fifths has-background-info has-text-white has-text-centered py-6">
+                        <div class="title is-size-2 has-text-white mb-0"><span
+                                class="has-text-white has-text-weight-bold is-uppercase">Weather</span><span
+                                class="has-text-warning is-uppercase">Top</span></div>
+                        <div class="title is-size-3 has-text-white has-text-weight-bold is-uppercase pt-0">
+                            Account Signup
+                        </div>
+                        <div class="my-4 has-text-weight-bold">
+                            <p>Already have an account?</p>
+                            <a href="/login" class="is-link has-text-link-light	">
+                                <p><u>Login!</u></p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <!-- Signup Notification -->
+                        
+                        <!-- Signup Notification End -->
+                        <form name="frmRegister" class="p-2" action="/register" method="POST"
+                              onsubmit="return validateRegisterForm()">
+                            <div class="field is-horizontal field-body">
+                                <div class="field">
+                                    <label class="label">First Name</label>
+                                    <p class="control is-expanded">
+                                        <input class="input" type="text" placeholder="First Name" name="firstname">
+                                    <div id="errFirstName"
+                                         class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <label class="label">Last Name</label>
+                                    <p class="control">
+                                        <input class="input" type="text" placeholder="Last Name" name="lastname">
+                                    <div id="errLastName"
+                                         class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Email Address</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="Email" name="email">
+                                    <div id="errEmail"
+                                         class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Password</label>
+                                <div class="control">
+                                    <input class="input" type="password" placeholder="Password" id="password"
+                                           name="password" onkeyup="check();">
+                                    <div id="errPassword"
+                                         class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Confirm Password</label>
+                                <div class="control">
+                                    <input class="input" type="password" placeholder="Password" id="confirm_password"
+                                           name="confirm_password" onkeyup="check();">
+                                    <div id="errConfirmPassword"
+                                         class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                </div>
+                            </div>
+                            <div class="field is-grouped">
+                                <div class="control is-expanded">
+                                    <button class="button is-info is-fullwidth">Sign Up</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SignUP End -->
+    </div>
+</section>
+<!-- Content End -->

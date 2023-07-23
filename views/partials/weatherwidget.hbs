@@ -24,12 +24,12 @@
         <div class="column">
           <div class="column has-text-weight-bold has-text-right py-0 px-2">
             <!-- content for the Latitude -->
-            lat
+            {{latitude}}{{station.latitude}}
             <!-- 52.162 -->
           </div>
           <div class="column has-text-weight-bold has-text-right py-0 px-2">
             <!-- content for Longitude -->
-            long
+            {{longitude}}{{station.longitude}}
             <!-- -7.152 -->
           </div>
         </div>
@@ -42,7 +42,12 @@
     </div>
     <div class="column is-one-third has-text-centered">
       <hr class="mt-1 mb-0" />
-      <img src="../images/weathericons/compass-{{windDirectionIcon}}.svg" alt="wind direction" style="max-height: 180px;" class="" />
+      <img
+        src="../images/weathericons/compass-{{windDirectionIcon}}.svg"
+        alt="wind direction"
+        style="max-height: 180px;"
+        class=""
+      />
     </div>
     <div class="column is-one-third has-text-centered">
       <hr class="mt-1 mb-0" />

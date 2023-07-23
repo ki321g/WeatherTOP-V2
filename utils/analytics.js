@@ -73,5 +73,5 @@ function minMaxReadings(stationReadings, readingType, minMax) {
     } else if (minMax === "max") {
       return maxPressure;
     }
-  }
-}
+  };
+};

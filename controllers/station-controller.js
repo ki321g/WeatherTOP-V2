@@ -14,7 +14,6 @@ export const stationController = {
       displayReadings = true;
     }
     const viewData = {
-      title: "Station",
       station: station,
       displayReading: displayReadings,
     };
