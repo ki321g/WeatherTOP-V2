@@ -36,17 +36,33 @@ export const accountsController = {
 
   async authenticate(request, response) {
     const user = await userStore.getUserByEmail(request.body.email);
-    const userPassword = request.body.password;
-    if (user && user.password === userPassword) {
+    const passwordUsed = request.body.password;
+    const emailUsed = request.body.email;
+
+    console.log("Attempting to authenticate with " + emailUsed + ":" + passwordUsed);
+
+    if (user && user.password === passwordUsed) {
       response.cookie("LoggedInUser", user.email);
-      console.log(`Logging in ${user.email}`,
-      `\n`,
-      `userPassword:${userPassword}`,
-      `\n`,
-      `Password:${user.password}`);
+      console.log("Authentication Successful");
       response.redirect("/dashboard");
+    } else if (!user) { 
+      const viewData = {
+        loginFail: "Authentication failed, Email entered is not a current member, please register!",
+      };
+      console.log(viewData.loginFail);
+      response.render("login-view", viewData);
+    } else if (user.password !== passwordUsed) {
+      const viewData = {
+        loginFail: "Authentication failed, Wrong Password!",
+      };
+      console.log(viewData.loginFail);
+      response.render("login-view", viewData);
     } else {
-      response.redirect("/login");
+      const viewData = {
+        loginFail: "Authentication failed, please try again!",
+      };
+      console.log(viewData.loginFail);
+      response.render("login-view", viewData);
     }
   },
 

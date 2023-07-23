@@ -26,6 +26,14 @@ export const handlebarsHelpers = {
   ne: function (a, b) {
     return a !== b;
   },
+  // If Null
+  ifNotNull: function (a) {
+    if (a !== null) {
+      return 1;
+    } else {
+      return 0;
+    }
+  },
   // testing
   test: function (a, b) {
     if (a >= b) {

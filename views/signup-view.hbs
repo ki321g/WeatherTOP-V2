@@ -37,7 +37,9 @@
                     </div>
                     <div class="column">
                         <!-- Signup Notification -->
-                        
+                        {{#if loginFail}}
+                        {{> signupFail}}
+                        {{/if}}
                         <!-- Signup Notification End -->
                         <form name="frmRegister" class="p-2" action="/register" method="POST"
                               onsubmit="return validateRegisterForm()">

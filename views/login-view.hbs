@@ -37,7 +37,9 @@
                     </div>
                     <div class="column">
                         <!-- Login Notification -->
-                       
+                        {{#if loginFail}}
+                        {{> loginfail}}
+                        {{/if}}
                         <!-- Login Notification End -->
                         <form class="p-2" action="/authenticate" method="POST">
                             <div class="field">
