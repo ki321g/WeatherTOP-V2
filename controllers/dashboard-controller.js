@@ -1,14 +1,16 @@
 import { stationStore } from "../models/station-store.js";
 import { latestReadings } from "../utils/analytics.js";
+import { accountsController } from "./accounts-controller.js";
 
 export const dashboardController = {
   /*
    * Render Dashboard
    */
   async index(request, response) {
+    let loggedInUser = await accountsController.getLoggedInUser(request);
     const viewData = {
       title: "Station Dashboard",
-      stations: await stationStore.getAllStations(),
+      stations: await stationStore.getStationByUserId(loggedInUser._id),
     };
     for (const station of viewData.stations) {
       const readingObject = await latestReadings(station._id);
@@ -26,8 +28,12 @@ export const dashboardController = {
    * Add Station to Dashboard
    */
   async addStation(request, response) {
+    let loggedInUser = await accountsController.getLoggedInUser(request);
     const newStation = {
-      name: request.body.name,
+      name: request.body.name.toUpperCase(),
+      latitude: request.body.latitude,
+      longitude: request.body.longitude,
+      userid: loggedInUser._id,
     };
     console.log(`adding station ${newStation.name}`);
     await stationStore.addStation(newStation);

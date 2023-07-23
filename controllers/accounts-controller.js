@@ -16,7 +16,7 @@ export const accountsController = {
   },
 
   logout(request, response) {
-    response.cookie("playlist", "");
+    response.cookie("LoggedInUser", "");
     response.redirect("/");
   },
 
@@ -36,9 +36,14 @@ export const accountsController = {
 
   async authenticate(request, response) {
     const user = await userStore.getUserByEmail(request.body.email);
-    if (user) {
-      response.cookie("playlist", user.email);
-      console.log(`logging in ${user.email}`);
+    const userPassword = request.body.password;
+    if (user && user.password === userPassword) {
+      response.cookie("LoggedInUser", user.email);
+      console.log(`Logging in ${user.email}`,
+      `\n`,
+      `userPassword:${userPassword}`,
+      `\n`,
+      `Password:${user.password}`);
       response.redirect("/dashboard");
     } else {
       response.redirect("/login");

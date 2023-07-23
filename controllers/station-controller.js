@@ -56,4 +56,17 @@ export const stationController = {
     await readingStore.addReading(station._id, newReading);
     response.redirect("/station/" + station._id);
   },
+
+  /*
+   * Delete Station
+   */
+  async deleteStation(request, response) {
+    console.log("Test");
+    const station = await stationStore.getStationById(request.params.id);
+    
+    console.log(`deleting Station: ${station.name}`);
+
+    await  stationStore.deleteStationById(station._id);
+    response.redirect("/dashboard/");
+  },
 };

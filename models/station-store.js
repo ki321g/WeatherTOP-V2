@@ -26,6 +26,16 @@ export const stationStore = {
   },
 
   /*
+    * Get Station by ID from the store
+    */
+    async getStationByUserId(userid) {
+      await db.read();
+      let sortStations = db.data.stations.filter((stations) => stations.userid === userid);
+      sortStations.sort((a, b) => (a.name > b.name ? 1 : -1));
+      return sortStations;
+    },
+
+  /*
    * Add Station to the store
    */
   async addStation(station) {

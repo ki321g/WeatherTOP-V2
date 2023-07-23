@@ -1,1 +1,13 @@
-{"file":"./models/users.json","users":[]}
+{
+  "file": "./models/users.json",
+  "users": [
+    {
+      "firstname": "Kieron",
+      "lastname": "Garvey",
+      "email": "k@g.com",
+      "password": "1234567",
+      "confirm_password": "1234567",
+      "_id": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9"
+    }
+  ]
+}
