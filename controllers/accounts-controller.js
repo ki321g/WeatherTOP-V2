@@ -29,9 +29,26 @@ export const accountsController = {
 
   async register(request, response) {
     const user = request.body;
-    await userStore.addUser(user);
-    console.log(`registering ${user.email}`);
-    response.redirect("/");
+
+    const checkUser = await userStore.getUserByEmail(user.email);
+    if (!checkUser && user.password.length >= 7) {  
+      await userStore.addUser(user);
+      console.log(`registering ${user.email}`);
+      console.log("Member Account Created Successfully!");      
+      response.redirect("/");
+    } else if (user.password.length >= 7) {
+      const viewData = {
+        signupFail: "Signup failed, Email Already In Use!",
+      };
+      console.log(viewData.signupFail);
+      response.render("signup-view", viewData);
+    } else if (user.password.length < 7) {
+      const viewData = {
+        signupFail: "Signup failed, Password has to be greater than 7 characters!",
+      };
+      console.log(viewData.signupFail);
+      response.render("signup-view", viewData);
+    }    
   },
 
   async authenticate(request, response) {

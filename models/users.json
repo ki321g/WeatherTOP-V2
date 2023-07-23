@@ -8,6 +8,14 @@
       "password": "1234567",
       "confirm_password": "1234567",
       "_id": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9"
+    },
+    {
+      "firstname": "Dave",
+      "lastname": "Jones",
+      "email": "d@J.com",
+      "password": "1234567",
+      "confirm_password": "1234567",
+      "_id": "9d708e7f-49b8-4cd4-bc25-b342a6c7bf5c"
     }
   ]
 }
