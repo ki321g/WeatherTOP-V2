@@ -1,0 +1,175 @@
+{{> membersmenu active="profile"}}
+
+<!-- Profile Start -->
+<!-- Content Start -->
+<section class="section pt-5 pb-3">
+  <div class="container">
+    <!-- Hero Welcome User -->
+    <section class="hero is-info welcome is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-size-3">
+            <span class="has-text-white has-text-weight-bold is-uppercase">Weather</span><span
+                  class="has-text-warning is-uppercase">Top</span>
+            <span class="has-text-white has-text-weight-bold is-uppercase">APP Members Profile</span>
+          </h1>
+        </div>
+      </div>
+    </section>
+    <!-- Hero Welcome User End-->
+    <!-- SignUP Start -->
+    <div class="container mt-4" style="max-width:800px;">
+      <div class="box">
+        <div class="columns">
+          <div class="column is-two-fifths has-background-info has-text-white has-text-centered py-6">
+            <div class="title is-size-2 has-text-white mb-0"><span class="has-text-white has-text-weight-bold is-uppercase">Weather</span><span
+                    class="has-text-warning is-uppercase">Top</span></div>
+            <div class="title is-size-3 has-text-white has-text-weight-bold is-uppercase pt-0">
+              Profile
+            </div>
+            <div class="my-4 has-text-weight-bold">
+              <div class="container is-centered">Update your Profile!</div>
+    <!--          <div class="container is-centered buttons mt-4">
+                <a href="/deleteaccount/${member.id}" class="button is-danger">
+                  Delete Account
+                </a>
+              </div>
+     -->
+              <a data-open-modal="" class="card-footer-item js-modal-trigger-delete-account has-text-white is-size-6 p-0 mt-4"
+                 data-target="modal-delete-member"
+                 data-todelete="Member"
+                 data-link="/profile/delete/{{user._id}}"  aria-label="more options">
+                <button class="button is-danger is-medium mx-1">
+                              <span class="icon is-small">
+                                <i class="fas fa-trash"></i>
+                              </span>
+                  <span>Delete Account</span>
+                </button>
+              </a>
+            </div>
+          </div>
+          <div class="column">
+            <!-- Login Notification -->
+           
+            <!-- Login Notification End -->
+            <form name="frmRegister" class="p-2" action="/profile/update/{{user._id}}" method="POST" onsubmit="return validateRegisterForm()">
+              <div class="field is-horizontal field-body">
+                <div class="field">
+                  <label class="label">First Name</label>
+                  <p class="control is-expanded">
+                    <input class="input" type="text" placeholder="First Name" name="firstname" value="{{user.firstname}}">
+                  <div id="errFirstName" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                  </p>
+                </div>
+                <div class="field">
+                  <label class="label">Last Name</label>
+                  <p class="control">
+                    <input class="input" type="text" placeholder="Last Name" name="lastname" value="{{user.lastname}}">
+                  <div id="errLastName" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                  </p>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Email Address</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Email" name="email" value="{{user.email}}" disabled>
+                  <div id="errEmail" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                  <input class="input" type="password" placeholder="Password" id="password"  name="password" value="{{user.password}}" onkeyup="check();">
+                  <div id="errPassword" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">Confirm Password</label>
+                <div class="control">
+                  <input class="input" type="password" placeholder="Password" id="confirm_password" value="{{user.password}}" onkeyup="check();">
+                  <div id="errConfirmPassword" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control is-expanded">
+                  <button class="button is-info is-fullwidth">Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- SignUP End -->
+  </div>
+</section>
+<!-- Modal Start -->
+<dialog id="modal-delete-member" class="modal p-1">
+  <div class="modal-card">
+    <header class="modal-card-head has-background-info py-0">
+      <p class="modal-card-title has-text-weight-semi-bold is-uppercase has-text-white is-size-5 py-4">Delete
+        Account</p>
+      <button class="delete is-size-4" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body p-4">
+      <!-- Content ... -->
+      <div id="delete-item" class="is-size-4 has-text-weight-semi-bold has-text-centered pb-0"></div>
+    </section>
+    <footer class="modal-card-foot has-background-grey py-0">
+      <a id="delete-reading" class="card-footer-item delete-station has-text-white is-size-6 py-2">Delete Account</a>
+      <a class="card-footer-item cancel-delete has-text-white is-size-6 py-2">Cancel</a>
+    </footer>
+  </div>
+</dialog>
+<!-- Modal End -->
+<!-- Content End -->
+<!-- Profile End -->
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Functions to open and close a modal
+    function openModal($el) {
+      $el.classList.add('is-active');
+    }
+
+    function closeModal($el) {
+      $el.classList.remove('is-active');
+    }
+
+    function closeAllModals() {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+    // Add a click event on buttons to open a specific modal
+    (document.querySelectorAll('.js-modal-trigger-delete-account') || []).forEach(($trigger) => {
+      const modal = $trigger.dataset.target;
+      const $target = document.getElementById(modal);
+      const link = $trigger.dataset.link;
+
+      $trigger.addEventListener('click', () => {
+        document.getElementById("delete-reading").href = link;
+        document.getElementById("delete-item").innerHTML = "Are your sure you want to delete our Account?";
+        openModal($target);
+      });
+    });
+
+    // Add a click event on various child elements to close the parent modal
+    (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .cancel-delete') || []).forEach(($close) => {
+      const $target = $close.closest('.modal');
+
+      $close.addEventListener('click', () => {
+        closeModal($target);
+      });
+    });
+
+    // Add a keyboard event to close all modals
+    document.addEventListener('keydown', (event) => {
+      const e = event || window.event;
+
+      if (e.keyCode === 27) { // Escape key
+        closeAllModals();
+      }
+    });
+  });
+</script>

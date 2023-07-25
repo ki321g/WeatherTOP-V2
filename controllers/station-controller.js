@@ -33,7 +33,10 @@ export const stationController = {
    */
   async addReading(request, response) {
     const station = await stationStore.getStationById(request.params.id);
+    const date = new Date(); // Add Current Date
+    let dateTime = date.toLocaleString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false});// Convert to Format
     const newReading = {
+      timeStamp: String(dateTime),
       code: Number(request.body.code),
       temperature: Number(request.body.temperature),
       windSpeed: Number(request.body.windSpeed),
@@ -57,16 +60,29 @@ export const stationController = {
     response.redirect("/station/" + station._id);
   },
 
-  /*
-   * Delete Station
-   */
-  async deleteStation(request, response) {
-    console.log("Test");
-    const station = await stationStore.getStationById(request.params.id);
-    
-    console.log(`deleting Station: ${station.name}`);
-
-    await  stationStore.deleteStationById(station._id);
-    response.redirect("/dashboard/");
+  async deleteReading(request, response) {
+    const stationId = request.params.id;
+    const readingId = request.params.readingid;
+    console.log(`\nDeleting Reading: ${readingId}`);    
+    await readingStore.deleteReading(readingId);
+    response.redirect("/station/" + stationId);
   },
+
+  async editReading(request, response) {
+    const stationId = request.params.id;
+    const readingId = request.params.readingid;
+    console.log(`\nEdit Reading: ${readingId} on Station ${stationId}`); 
+    
+    const updateReading = {
+      code: Number(request.body.code),
+      temperature: Number(request.body.temperature),
+      windSpeed: Number(request.body.windSpeed),
+      windDirection: Number(request.body.windDirection),
+      pressure: Number(request.body.pressure),
+    };
+    
+    await readingStore.updateReading(readingId, updateReading);
+    response.redirect("/station/" + stationId);
+  },
+
 };

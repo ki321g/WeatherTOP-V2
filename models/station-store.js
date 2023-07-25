@@ -26,14 +26,14 @@ export const stationStore = {
   },
 
   /*
-    * Get Station by ID from the store
-    */
-    async getStationByUserId(userid) {
-      await db.read();
-      let sortStations = db.data.stations.filter((stations) => stations.userid === userid);
-      sortStations.sort((a, b) => (a.name > b.name ? 1 : -1));
-      return sortStations;
-    },
+   * Get Station by ID from the store
+   */
+  async getStationByUserId(userid) {
+    await db.read();
+    let sortStations = db.data.stations.filter((stations) => stations.userid === userid);
+    sortStations.sort((a, b) => (a.name > b.name ? 1 : -1));
+    return sortStations;
+  },
 
   /*
    * Add Station to the store
@@ -52,8 +52,11 @@ export const stationStore = {
   async deleteStationById(id) {
     await db.read();
     const index = db.data.stations.findIndex((station) => station._id === id);
-    db.data.stations.splice(index, 1);
-    await db.write();
+    if (index !== -1) {      
+      await readingStore.deleteStationsReadings(id);
+      db.data.stations.splice(index, 1);
+      await db.write();
+    }
   },
 
   /*

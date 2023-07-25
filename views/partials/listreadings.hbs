@@ -16,7 +16,7 @@
         
 		{{#each station.readings}}
         <tr>
-            <td class="has-text-centered">DateTime</td>
+            <td class="has-text-centered">{{timeStamp}}</td>
             <td class="has-text-centered">{{code}}</td>
             <td class="has-text-centered">{{temperature}}&#176C</td>
             <td class="has-text-centered">{{windSpeed}}km/hr</td>
@@ -42,7 +42,7 @@
                                data-code="{{code}}"
                                data-temperature="{{temperature}}"
                                data-windspeed="{{windSpeed}}"
-                               data-winddirection="WindDir"
+                               data-winddirection="{{windDirection}}"
                                data-pressure="{{pressure}}"
                                data-link="/station/{{stationid}}/editreading/{{_id}}"
                                aria-label="more options">

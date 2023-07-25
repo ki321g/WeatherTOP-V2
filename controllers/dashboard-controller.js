@@ -40,4 +40,14 @@ export const dashboardController = {
     ///station/{{_id}}
     response.redirect("/station/" + newStation._id);
   },
+
+  /*
+   * Delete Station
+   */
+  async deleteStation(request, response) {
+    const stationId = request.params.id;
+    console.log(`Deleting Station: ${stationId}`);
+    await stationStore.deleteStationById(stationId);
+    response.redirect("/dashboard");
+  },
 };

@@ -1,11 +1,16 @@
 import { userStore } from "../models/user-store.js";
+import { stationStore } from "../models/station-store.js";
 
 export const accountsController = {
-  index(request, response) {
+  async profile(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+
     const viewData = {
-      title: "Login or Signup",
+      title: "User Profile",
+      user: loggedInUser,
     };
-    response.render("index", viewData);
+    console.log("\nRendering: Profile-View");
+    response.render("profile-view", viewData);
   },
 
   login(request, response) {
@@ -87,5 +92,33 @@ export const accountsController = {
   async getLoggedInUser(request) {
     const userEmail = request.cookies.LoggedInUser;
     return await userStore.getUserByEmail(userEmail);
+  },
+
+  async updateUser(request, response) {
+    //const loggedInUser = await accountsController.getLoggedInUser(request.body.email);
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    const updateUser = {
+      firstname: request.body.firstname,
+      lastname: request.body.lastname,
+      password: request.body.password,
+    };
+
+    await userStore.updateUser(loggedInUser._id, updateUser);
+    response.redirect("/profile");
+  },
+
+  async deleteUser(request, response) {
+    const loggedInUser = await accountsController.getLoggedInUser(request);
+    
+    const stationsToDelete = {
+      stations: await stationStore.getStationByUserId(loggedInUser._id),
+    };
+    for (const station of stationsToDelete.stations) {
+      await stationStore.deleteStationById(station._id);
+    }
+
+    await userStore.deleteUserById(loggedInUser._id);
+
+    response.redirect("/");
   },
 };

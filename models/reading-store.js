@@ -58,15 +58,27 @@ export const readingStore = {
     await db.write();
   },
 
+  async deleteStationsReadings(id) {
+    await db.read();
+    db.data.readings = db.data.readings.filter((reading) => reading.stationid !== id);
+    await db.write();
+  },
+
   /*
    * Update Reading in the store
    */
-  async updateReading(reading, updatedReading) {
-    reading.code = updatedReading.code;
-    reading.temp = updatedReading.temp;
-    reading.windSpeed = updatedReading.windSpeed;
-    reading.windDirection = updatedReading.windDirection;
-    reading.pressure = updatedReading.pressure;
+  async updateReading(readingId, updatedReading) {    
+    await db.read();
+    console.log(`\nEdit Reading: ${readingId}`); 
+
+    const index = db.data.readings.findIndex((reading) => reading._id === readingId);
+ 
+    db.data.readings[index].code = updatedReading.code;
+    db.data.readings[index].temperature = updatedReading.temperature;
+    db.data.readings[index].windSpeed = updatedReading.windSpeed;
+    db.data.readings[index].windDirection = updatedReading.windDirection;
+    db.data.readings[index].pressure = updatedReading.pressure;
     await db.write();
+    return updatedReading;
   },
 };

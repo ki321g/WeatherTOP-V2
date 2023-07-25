@@ -16,39 +16,11 @@
       "_id": "27806d91-9e8e-4e60-b04d-5368fa490aab"
     },
     {
-      "name": "WEXFORD",
-      "latitude": "52.339161",
-      "longitude": "-6.460125",
+      "name": "A",
+      "latitude": "90",
+      "longitude": "7",
       "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
-      "_id": "efe30fa8-23f7-4bb5-b0e6-52918122a7ab"
-    },
-    {
-      "name": "CORK",
-      "latitude": "51.89797",
-      "longitude": "-8.47061",
-      "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
-      "_id": "51be7c29-1bf2-454c-9b9e-53f45e099766"
-    },
-    {
-      "name": "ARDMORE",
-      "latitude": "51.89797",
-      "longitude": "-8.47061",
-      "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
-      "_id": "8240e4bb-2b55-4c17-8f68-e704f48e7bc6"
-    },
-    {
-      "name": "AND",
-      "latitude": "51.2",
-      "longitude": "-7.0",
-      "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
-      "_id": "ce026557-9bc8-4b63-b96c-a11cb6cec0d1"
-    },
-    {
-      "name": "DUBLIN",
-      "latitude": "53.33306",
-      "longitude": "-6.24889",
-      "userid": "f64f759f-3ee7-4435-8592-32406be3e902",
-      "_id": "2567a293-45e1-466a-bfd2-af752405e27d"
+      "_id": "af1ff5d9-0333-408c-bdb6-ed4f551dc8b8"
     }
   ]
 }

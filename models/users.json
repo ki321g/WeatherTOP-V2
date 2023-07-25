@@ -6,16 +6,7 @@
       "lastname": "Garvey",
       "email": "k@g.com",
       "password": "1234567",
-      "confirm_password": "1234567",
       "_id": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9"
-    },
-    {
-      "firstname": "Dave",
-      "lastname": "Jones",
-      "email": "d@j.com",
-      "password": "1234567",
-      "confirm_password": "1234567",
-      "_id": "f64f759f-3ee7-4435-8592-32406be3e902"
     }
   ]
 }
