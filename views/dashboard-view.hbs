@@ -36,6 +36,8 @@
         {{#if (gte stations.length 1)}}            
             <!-- Stations MAP -->         
             {{> map}}
+        {{else}}
+            {{> addfirststation}}  
         {{/if}}        
             
         <!-- List Stations -->

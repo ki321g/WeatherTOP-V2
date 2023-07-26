@@ -31,6 +31,8 @@ th {
 }
 
 .mapBorderColor {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
   border-top-width: 0px;
   border-left-width: 3px;
   border-right-width: 3px;
@@ -40,10 +42,11 @@ th {
 }
 
 .addStationBorderColor {
-  border-top-width: 3px;
-  border-left-width: 3px;
-  border-right-width: 3px;
-  border-bottom-width: 3px;
+  border-radius: 8px;
+  border-top-width: 5px;
+  border-left-width: 5px;
+  border-right-width: 5px;
+  border-bottom-width: 5px;
   border-color: hsl(204, 86%, 53%);
   border-style: solid;
 }
