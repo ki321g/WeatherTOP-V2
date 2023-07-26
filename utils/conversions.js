@@ -80,6 +80,7 @@ export const conversions = {
       windDirectionIcon = "NE";
     } else if (windDirection >= 56.25 && windDirection < 78.75) {
       windDirectionText = "East North East";
+      windDirectionIcon = "ENE";
     } else if (windDirection >= 78.75 && windDirection < 101.75) {
       windDirectionText = "East";
       windDirectionIcon = "E";
@@ -106,7 +107,7 @@ export const conversions = {
       windDirectionIcon = "WSW";
     } else if (windDirection >= 258.75 && windDirection < 281.25) {
       windDirectionText = "West";
-      windDirectionIcon = "W";  
+      windDirectionIcon = "W";
     } else if (windDirection >= 281.25 && windDirection < 303.75) {
       windDirectionText = "West North West";
       windDirectionIcon = "WNW";
@@ -121,9 +122,9 @@ export const conversions = {
       windDirectionIcon = "N";
     }
 
-    if(returnType === "icon") {
+    if (returnType === "icon") {
       return windDirectionIcon;
-    } else if(returnType === "text") {
+    } else if (returnType === "text") {
       return windDirectionText;
     }
   },
