@@ -52,14 +52,14 @@
       "stationid": "27806d91-9e8e-4e60-b04d-5368fa490aab"
     },
     {
-      "timeStamp": "26/07/2023, 10:59:55",
+      "timeStamp": "26/07/2023, 12:14:55",
       "code": 500,
-      "temperature": 15.81,
-      "windSpeed": 4.42,
-      "windDirection": 173,
-      "pressure": 1004,
-      "_id": "fcb09a72-b01b-41de-a13c-21a9586e0c58",
-      "stationid": "27806d91-9e8e-4e60-b04d-5368fa490aab"
+      "temperature": 16.12,
+      "windSpeed": 6.69,
+      "windDirection": 240,
+      "pressure": 1006,
+      "_id": "8ea6143e-57f1-4012-94e0-6104b1b18920",
+      "stationid": "f9a520cd-1df8-40f2-b0a7-8cb80b29f7c9"
     }
   ]
 }

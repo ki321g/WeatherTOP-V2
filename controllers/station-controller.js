@@ -10,7 +10,7 @@ export const stationController = {
   async index(request, response) {
     const station = await stationStore.getStationById(request.params.id);
     let stationReadings = await latestReadings(request.params.id);
-    const dailyReadings  = await openWeatherMap.getDailyReadingsData(
+    const dailyReadings = await openWeatherMap.getDailyReadingsData(
       station.latitude,
       station.longitude,
       process.env.OPENWEATHERMAP_API_KEY
@@ -23,7 +23,7 @@ export const stationController = {
     const viewData = {
       station: station,
       dailyReadings: dailyReadings,
-      displayReading: displayReadings
+      displayReading: displayReadings,
     };
 
     Object.assign(viewData, stationReadings.reading);
