@@ -25,5 +25,25 @@ export const openWeatherMap = {
       return newReading;
     }
     return null;
-  }
+  },
+
+  async getDailyReadingsData(latitude, longitude, apiKey) {
+    let report = { labels: [], temperature: [], windSpeed: [], pressure: [] };
+    const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${apiKey}`;
+ 
+    const response = await axios.get(requestUrl);
+    console.dir(response);   
+  
+    if (response.status == 200) {      
+      const trendsData = response.data.daily;
+      for (let i = 0; i < trendsData.length; i++) {
+        const date = new Date(trendsData[i].dt * 1000);
+        report.labels.push(`${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`);  
+        report.temperature.push(trendsData[i].temp.day);
+        report.windSpeed.push(trendsData[i].wind_speed);
+        report.pressure.push(trendsData[i].pressure);
+      }
+    }
+    return report;
+  },
 };
