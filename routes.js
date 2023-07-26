@@ -30,5 +30,6 @@ router.get("/station/:id", stationController.index);
 router.post("/station/:id/addreading", stationController.addReading);
 router.get("/station/:id/deletereading/:readingid", stationController.deleteReading);
 router.post("/station/:id/editreading/:readingid", stationController.editReading);
+router.post('/station/:id/generate-reading', stationController.generateReading);
 
 router.get("*", catchAllController.index);

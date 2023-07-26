@@ -1,6 +1,7 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { latestReadings } from "../utils/analytics.js";
+import { openWeatherMap } from "../utils/openweathermap-utils.js";
 
 export const stationController = {
   /*
@@ -34,7 +35,15 @@ export const stationController = {
   async addReading(request, response) {
     const station = await stationStore.getStationById(request.params.id);
     const date = new Date(); // Add Current Date
-    let dateTime = date.toLocaleString('en-GB', {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false});// Convert to Format
+    let dateTime = date.toLocaleString("en-GB", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    }); // Convert to Format
     const newReading = {
       timeStamp: String(dateTime),
       code: Number(request.body.code),
@@ -63,7 +72,7 @@ export const stationController = {
   async deleteReading(request, response) {
     const stationId = request.params.id;
     const readingId = request.params.readingid;
-    console.log(`\nDeleting Reading: ${readingId}`);    
+    console.log(`\nDeleting Reading: ${readingId}`);
     await readingStore.deleteReading(readingId);
     response.redirect("/station/" + stationId);
   },
@@ -71,8 +80,8 @@ export const stationController = {
   async editReading(request, response) {
     const stationId = request.params.id;
     const readingId = request.params.readingid;
-    console.log(`\nEdit Reading: ${readingId} on Station ${stationId}`); 
-    
+    console.log(`\nEdit Reading: ${readingId} on Station ${stationId}`);
+
     const updateReading = {
       code: Number(request.body.code),
       temperature: Number(request.body.temperature),
@@ -80,9 +89,22 @@ export const stationController = {
       windDirection: Number(request.body.windDirection),
       pressure: Number(request.body.pressure),
     };
-    
+
     await readingStore.updateReading(readingId, updateReading);
     response.redirect("/station/" + stationId);
   },
 
+  async generateReading(request, response) {
+    const stationId = request.params.id;
+    const station = await stationStore.getStationById(stationId);
+
+    const newReading = await openWeatherMap.generateReading(
+      station.latitude,
+      station.longitude,
+      process.env.OPENWEATHERMAP_API_KEY
+    );
+
+    await readingStore.addReading(stationId, newReading);
+    response.redirect("/station/" + stationId);
+  },
 };
