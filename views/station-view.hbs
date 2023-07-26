@@ -48,14 +48,14 @@
                         <div class="columns is-centered px-5">
                             <div class="column is-centered mt-0">
                                 <div class="table-container">
+                                    {{> listreadings}}
                                      {{> chart id="temp-chart" name="Temperature" values=dailyReadings.temperature labels=dailyReadings.labels}}
                                     {{> chart id="wind-speed-chart" name="Wind Speed" values=dailyReadings.windSpeed labels=dailyReadings.labels}}
-                                    {{> chart id="pressure-chart" name="Pressure" values=dailyReadings.pressure labels=dailyReadings.labels}}
-                                    {{> listreadings}}
+                                    {{> chart id="pressure-chart" name="Pressure" values=dailyReadings.pressure labels=dailyReadings.labels}}                                    
                                 </div>
                             </div>
                         </div>
-                          <footer class="card-footer has-background-grey mt-4">
+                          <footer class="card-footer has-background-grey mt-0">
                     <div class="empty-div is-size-4 py-2"></div>
                 </footer>
             </div>
