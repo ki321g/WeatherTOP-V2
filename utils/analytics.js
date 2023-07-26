@@ -33,12 +33,22 @@ export const latestReadings = async (id) => {
     reading.minWindSpeed = minMaxReadings(stationReadings, "windSpeed", "min");
     reading.maxWindSpeed = minMaxReadings(stationReadings, "windSpeed", "max");
     reading.windDirection = stationReadings[latestReading].windDirection;
-    reading.windDirectionLabel = conversions.convertDegreeToDirection(stationReadings[latestReading].windDirection, "text");
-    reading.windDirectionIcon = conversions.convertDegreeToDirection(stationReadings[latestReading].windDirection, "icon");
+    reading.windDirectionLabel = conversions.convertDegreeToDirection(
+      stationReadings[latestReading].windDirection,
+      "text"
+    );
+    reading.windDirectionIcon = conversions.convertDegreeToDirection(
+      stationReadings[latestReading].windDirection,
+      "icon"
+    );
     reading.WindChill = conversions.calculateWindChill(reading.latestTemp, reading.latestWindSpeed);
     reading.latestPressure = stationReadings[latestReading].pressure;
     reading.minPressure = minMaxReadings(stationReadings, "pressure", "min");
     reading.maxPressure = minMaxReadings(stationReadings, "pressure", "max");
+    reading.trendTemperature = readingTrends(stationReadings.map((stationReadings) => stationReadings.temperature));
+    reading.trendWindSpeed = readingTrends(stationReadings.map((stationReadings) => stationReadings.windSpeed));
+    reading.trendPressure = readingTrends(stationReadings.map((stationReadings) => stationReadings.pressure));
+    
     reading.readingsRecorded = stationReadings.length;
   }
   return {
@@ -73,5 +83,31 @@ function minMaxReadings(stationReadings, readingType, minMax) {
     } else if (minMax === "max") {
       return maxPressure;
     }
-  };
-};
+  }
+}
+
+/**
+ * temperatureTrend() - Returns the current Temperature trend if any
+ *
+ * @param readings list of readings
+ * @return String of higher, lower or no-change
+ */
+function readingTrends(readings) {
+  if (readings.length >= 3) {
+    if (
+      readings[readings.length - 1] > readings[readings.length - 2] &&
+      readings[readings.length - 2] > readings[readings.length - 3]
+    ) {
+      return "higher";
+    } else if (
+      readings[readings.length - 1] < readings[readings.length - 2] &&
+      readings[readings.length - 2] < readings[readings.length - 3]
+    ) {
+      return "lower";
+    } else {
+      return "no-change";
+    }
+  } else {
+    return "no-change";
+  }
+}

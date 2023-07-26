@@ -115,10 +115,9 @@ export const accountsController = {
     };
     for (const station of stationsToDelete.stations) {
       await stationStore.deleteStationById(station._id);
-    }
+    };
 
     await userStore.deleteUserById(loggedInUser._id);
-
     response.redirect("/");
   },
 };

@@ -1,3 +1,6 @@
+import { stationStore } from "../models/station-store.js";
+import { readingStore } from "../models/reading-store.js";
+
 export const handlebarsHelpers = {
   /*
    * Handlebars Helpers
@@ -42,4 +45,6 @@ export const handlebarsHelpers = {
       return "Fail";
     }
   },
+
+
 };
