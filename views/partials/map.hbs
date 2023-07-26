@@ -26,7 +26,12 @@
   let avgLat = avgLng = 0;
   {{#each stations}}
     marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{name}}"});
-    marker.bindPopup("{{name}}");
+    marker.bindPopup("<h1><strong>{{name}}</strong></h1>" 
+             + "LatLng(" + {{latitude}} + "," 
+             + {{longitude}} + ")"
+             + "<br>"
+             + "<a href='/station/{{_id}}'>View Station Readings</a>"
+             );
     marker.addTo(map);
 
     avgLat += {{latitude}};
