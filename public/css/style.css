@@ -30,6 +30,23 @@ th {
   background: linear-gradient(to right, #5b86e5, #2160c4) !important;
 }
 
+.mapBorderColor {
+  border-top-width: 0px;
+  border-left-width: 3px;
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  border-color: hsl(204, 86%, 53%);
+  border-style: solid;
+}
+
+.addStationBorderColor {
+  border-top-width: 3px;
+  border-left-width: 3px;
+  border-right-width: 3px;
+  border-bottom-width: 3px;
+  border-color: hsl(204, 86%, 53%);
+  border-style: solid;
+}
 .weather-box {
   height: 100%;
 }

@@ -33,12 +33,11 @@
         </section>
         <!-- Hero Welcome User End-->
         <!-- Stations -->
-        {{#if (gte stations.length 1)}}
+        {{#if (gte stations.length 1)}}            
             <!-- Stations MAP -->         
             {{> map}}
         {{/if}}        
-        <!-- ADD Station -->
-         {{> addstation}}       
+            
         <!-- List Stations -->
         {{#each stations}}
         <!-- Station#{{_id}}: {{name}} -->
