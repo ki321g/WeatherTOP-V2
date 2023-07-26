@@ -21,6 +21,13 @@
       "email": "k@g.com",
       "password": "1234567",
       "_id": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9"
+    },
+    {
+      "firstname": "Maria",
+      "lastname": "Garvey",
+      "email": "m@g.com",
+      "password": "1234567",
+      "_id": "dcf5655c-0dfa-4312-a57c-0bfe1553ee81"
     }
   ]
 }

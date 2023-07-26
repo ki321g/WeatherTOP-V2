@@ -120,6 +120,16 @@
       "pressure": 1006,
       "_id": "a1cef140-cb26-477b-a76c-8c6993ae8c2a",
       "stationid": "95371c16-7b3e-43cd-ad1c-b37e57cc04c8"
+    },
+    {
+      "timeStamp": "26/07/2023, 20:40:20",
+      "code": 400,
+      "temperature": 16.26,
+      "windSpeed": 8.23,
+      "windDirection": 230,
+      "pressure": 1000,
+      "_id": "21a0e5fb-c6d8-4b6a-a414-369db3c7f06d",
+      "stationid": "3ba8e9e6-0fef-444f-910c-8720009bea02"
     }
   ]
 }
