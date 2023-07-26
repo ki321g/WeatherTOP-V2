@@ -33,10 +33,12 @@
         </section>
         <!-- Hero Welcome User End-->
         <!-- Stations -->
-        <!-- Stations MAP -->         
-        {{> map}}
+        {{#if (gte stations.length 1)}}
+            <!-- Stations MAP -->         
+            {{> map}}
+        {{/if}}        
         <!-- ADD Station -->
-        {{> addstation}}
+         {{> addstation}}       
         <!-- List Stations -->
         {{#each stations}}
         <!-- Station#{{_id}}: {{name}} -->
@@ -91,8 +93,8 @@
         <!-- Stations End -->
     </div>
 </section>
-<!-- Modal Start -->
-<dialog id="modal-delete-station" class="modal p-1">
+<!-- Modal Start --> 
+<dialog id="modal-delete-station" class="modal p-1" style=" z-index: 9999;">
     <div class="modal-card">
         <header class="modal-card-head has-background-info py-0">
             <p class="modal-card-title has-text-weight-semi-bold is-uppercase has-text-white is-size-5 py-4">Delete

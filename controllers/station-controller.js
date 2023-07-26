@@ -29,9 +29,9 @@ export const stationController = {
     Object.assign(viewData, stationReadings.reading);
 
     console.log("\nRendering: Station-View");
-    let viewDataString = JSON.stringify(viewData); // Debug Remove Later
-    let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
-    console.dir(viewDateObject, { depth: null, colors: true });
+    //let viewDataString = JSON.stringify(viewData); // Debug Remove Later
+    //let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
+    //console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
 
     response.render("station-view", viewData);
   },

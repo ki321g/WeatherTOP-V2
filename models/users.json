@@ -2,6 +2,20 @@
   "file": "./models/users.json",
   "users": [
     {
+      "firstname": "Homer",
+      "lastname": "Simpson",
+      "email": "homer@simpson.com",
+      "password": "secret",
+      "_id": "c4b02b8c-a34d-4ee8-af63-fdf91ba08ab5"
+    },
+    {
+      "firstname": "Marge",
+      "lastname": "Simpson",
+      "email": "marge@simpson.com",
+      "password": "secret",
+      "_id": "4272927b-d841-4cc8-b3aa-cbe65f3d3b64"
+    },
+    {
       "firstname": "Kieron",
       "lastname": "Garvey",
       "email": "k@g.com",

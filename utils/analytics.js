@@ -110,4 +110,4 @@ function readingTrends(readings) {
   } else {
     return "no-change";
   }
-}
+};

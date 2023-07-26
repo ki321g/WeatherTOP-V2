@@ -17,9 +17,9 @@ export const dashboardController = {
       Object.assign(station, readingObject.reading);
     }
     console.log("\nRendering: Dashboard-View");
-    let viewDataString = JSON.stringify(viewData); // Debug Remove Later
-    let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
-    console.dir(viewDateObject, { depth: null, colors: true });
+  //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
+  //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
+  //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
 
     response.render("dashboard-view", viewData);
   },

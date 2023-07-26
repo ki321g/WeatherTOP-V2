@@ -17,6 +17,7 @@ export const accountsController = {
     const viewData = {
       title: "Login to the Service",
     };
+    console.log("\nRendering: Login-View");
     response.render("login-view", viewData);
   },
 
@@ -29,6 +30,7 @@ export const accountsController = {
     const viewData = {
       title: "Login to the Service",
     };
+    console.log("\nRendering: Signup-View");
     response.render("signup-view", viewData);
   },
 
@@ -46,13 +48,13 @@ export const accountsController = {
       const viewData = {
         signupFail: "Signup failed, Email Already In Use!",
       };
-      console.log(viewData.signupFail);
+      //console.log(viewData.signupFail); //For Testing
       response.render("signup-view", viewData);
     } else if (user.password.length < 7) {
       const viewData = {
         signupFail: "Signup failed, Password has to be greater than 7 characters!",
       };
-      console.log(viewData.signupFail);
+      //console.log(viewData.signupFail); //For Testing
       response.render("signup-view", viewData);
     }
   },
@@ -72,19 +74,19 @@ export const accountsController = {
       const viewData = {
         loginFail: "Authentication failed, Email entered is not a current member, please register!",
       };
-      console.log(viewData.loginFail);
+      //console.log(viewData.loginFail);//For Testing
       response.render("login-view", viewData);
     } else if (user.password !== passwordUsed) {
       const viewData = {
         loginFail: "Authentication failed, Wrong Password!",
       };
-      console.log(viewData.loginFail);
+      //console.log(viewData.loginFail);//For Testing
       response.render("login-view", viewData);
     } else {
       const viewData = {
         loginFail: "Authentication failed, please try again!",
       };
-      console.log(viewData.loginFail);
+      //console.log(viewData.loginFail);//For Testing
       response.render("login-view", viewData);
     }
   },

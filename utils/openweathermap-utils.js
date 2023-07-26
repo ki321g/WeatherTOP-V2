@@ -15,7 +15,7 @@ export const openWeatherMap = {
       const currentWeather = response.data.current;
       const newReading = {
         timeStamp: String(dateTime),
-        code: Number(currentWeather.weather[0].id),
+        code: Number(codeConverter(currentWeather.weather[0].id)),
         temperature: Number(currentWeather.temp),
         windSpeed: Number(currentWeather.wind_speed),
         windDirection: Number(currentWeather.wind_deg),
@@ -32,7 +32,7 @@ export const openWeatherMap = {
     const requestUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=metric&exclude=minutely,hourly,alerts&appid=${apiKey}`;
  
     const response = await axios.get(requestUrl);
-    console.dir(response);   
+    //console.dir(response);  // Debug Remove Later  
   
     if (response.status == 200) {      
       const trendsData = response.data.daily;
@@ -46,4 +46,35 @@ export const openWeatherMap = {
     }
     return report;
   },
+};
+
+/**
+ * codeConverter() - Returns the current Temperature trend if any
+ *
+ * @param Code from openweathermap
+ * @return Code Used from Assignment SPEC
+ */
+function codeConverter(code) {
+  let returnCode = 0;
+  if (code >= 200 && code <= 232) {
+    returnCode = 800;
+  } else if (code >= 600 && code <= 622) {
+    returnCode = 700;
+  } else if (code >= 500 && code <= 531) {
+    returnCode = 600;
+  } else if (code == 312 || code == 321) {
+    returnCode = 500;
+  } else if (code >= 300 && code <= 311) {
+    returnCode = 400;
+  } else if (code == 803 || code == 804) {
+    returnCode = 300;
+  } else if (code == 801 || code == 802) {
+    returnCode = 200;
+  } else if (code == 800) {
+    returnCode = 100;
+  } else {
+    returnCode = 100;
+  }
+
+  return returnCode;
 };

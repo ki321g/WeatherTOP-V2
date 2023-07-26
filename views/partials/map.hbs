@@ -18,7 +18,7 @@
   let map = L.map('map')
   let openStreetMapLayer = L.tileLayer(
     'https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
-    { maxZoom: 19, attribution: '© OpenStreetMap' }
+    { maxZoom:19, attribution: '© OpenStreetMap' }
   );
   openStreetMapLayer.addTo(map);
 
@@ -40,5 +40,5 @@
   avgLat /= {{stations.length}};
   avgLng /= {{stations.length}};
 
-  map.setView([avgLat, avgLng], 11);
+  map.setView([avgLat, avgLng], 8);
 </script>
