@@ -1,52 +1,3 @@
-<!-- <div class="column is-12 mt-3 mb-5 p-0" style="position:absolute; z-index: 99999; opacity: 0.90; ">
-    <div class="card events-card ">
-        <header class="card-header has-background-info mb-2">
-            <p class="card-header-title is-uppercase has-text-white is-size-5 py-1">
-                ADD STATION
-            </p>
-        </header>
-       <section class="columns is-centered">
-            <div class="container column is-12">
-                <form name="addStation" action="/dashboard/addstation" onsubmit="return validateStationForm()" method="POST">
-                    <div class="field is-horizontal mx-4 my-0">
-                        <div class="field-body is-centered">
-                            <div class="field">
-                                <label class="label mb-0">Station Name</label>
-                                <div class="control">
-                                    <input id="newName" type="text" class="input" placeholder="Enter Station Name..." name="name">
-                                    <div id="errName" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
-                                </div>
-                            </div>
-                           <div class="field">
-                              <label class="label mb-0">Latitude</label>
-                              <div class="control">
-                                <input id="newLatitude" class="input" placeholder="000.000&#176"
-                                  name="latitude" min="0" type="text">
-                                <div id="errLatitude" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
-                              </div>
-                            </div>
-                            <div class="field">
-                              <label class="label mb-0">Longitude</label>
-                              <div class="control">
-                                <input id="newLongitude" class="input" placeholder="000.000&#176" name="longitude" type="text">
-                                <div id="errLongitude" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="column is-12 py-2">
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-fullwidth is-info is-uppercase has-text-weight-bold">Add Station</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section> 
--->
-
 <div class="container p-2">
   <div class="columns is-12">
     <div class="column is-8"><!-- Blank --></div>
@@ -58,7 +9,7 @@
               <div class="field">
                 <label class="label mb-0">STATION NAME</label>
                 <div class="control">
-                  <input id="newName" type="text" class="input" placeholder="Enter Station Name..." name="name"/>
+                  <input id="newName" type="text" class="input" placeholder="Enter Station Name..." name="name" />
                   <div id="errName" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
                 </div>
               </div>
@@ -90,7 +41,6 @@
                 </div>
               </div>
             </div>
-
             <div class="column is-12 py-2">
               <div class="field">
                 <div class="control">
@@ -106,46 +56,3 @@
     <div class="column is-1"><!-- Blank --></div>
   </div>
 </div>
-
-<!--
-          <section class="columns is-centered">
-            <div class="container column is-12">
-                <form name="addStation" action="/dashboard/addstation" onsubmit="return validateStationForm()" method="POST">
-                  <div class="container mx-4 my-0">
-                            <div class="field">
-                                <label class="label mb-0">Station Name</label>
-                                <div class="control">
-                                    <input id="newName" type="text" class="input" placeholder="Enter Station Name..." name="name">
-                                    <div id="errName" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
-                                </div>
-                            </div>
-                           <div class="field">
-                              <label class="label mb-0">Latitude</label>
-                              <div class="control">
-                                <input id="newLatitude" class="input" placeholder="000.000&#176"
-                                  name="latitude" min="0" type="text">
-                                <div id="errLatitude" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
-                              </div>
-                            </div>
-                            <div class="field">
-                              <label class="label mb-0">Longitude</label>
-                              <div class="control">
-                                <input id="newLongitude" class="input" placeholder="000.000&#176" name="longitude" type="text">
-                                <div id="errLongitude" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
-                              </div>
-                            </div>
-                    </div>
-
-                    <div class="column is-12 py-2">
-                        <div class="field">
-                            <div class="control">
-                                <button class="button is-fullwidth is-info is-uppercase has-text-weight-bold">Add Station</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </section> 
-  
-    </div>
-</div> -->
