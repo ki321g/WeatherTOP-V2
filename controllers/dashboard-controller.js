@@ -30,6 +30,8 @@ export const dashboardController = {
    */
   async addStation(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
+    let generateReading = request.body.generateReading;
+
     const newStation = {
       name: request.body.name.toUpperCase(),
       latitude: request.body.latitude,
@@ -39,8 +41,9 @@ export const dashboardController = {
     console.log(`adding station ${newStation.name}`);
     await stationStore.addStation(newStation);
 
-    //console.log(`GenerateReading: ${request.body.generateReading}`);
-    if (request.body.generateReading != 0) {
+    console.log(`GenerateReading: ${request.body.generateReading}`);
+    
+    if (generateReading.includes("on")) {
       await stationController.generateInitalReading(newStation._id);
     };
     
