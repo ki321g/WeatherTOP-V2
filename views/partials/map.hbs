@@ -5,13 +5,15 @@
         </div>
 
 <script>
+  //import axios from "axios";
+
   let map = L.map('map')
   let openStreetMapLayer = L.tileLayer(
     'https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
     { maxZoom:19, attribution: '© OpenStreetMap' }
   );
   openStreetMapLayer.addTo(map);
-
+  
   let marker;
   let avgLat = avgLng = 0;
   {{#each stations}}
@@ -31,4 +33,28 @@
   avgLng /= {{stations.length}};
 
   map.setView([avgLat, avgLng], 7);
+  map.doubleClickZoom.disable();
+
+  map.on('dblclick', function(e) {
+     document.getElementById('newName').value = "";
+     document.getElementById('newLatitude').value = "";
+    document.getElementById('newLongitude').value = "";
+
+    console.log("Latitude: " + e.latlng.lat);
+    console.log("Longitude: " + e.latlng.lng);   
+    
+    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${e.latlng.lat}&lon=${e.latlng.lng}`)
+    .then(resp => resp.json())
+    .then((places) => {      
+      console.log(places);
+      if (places.address.city_district != undefined) {
+        document.getElementById('newName').value= places.address.city_district;  
+      } else {
+        document.getElementById('newName').value= ""; 
+      }
+    });
+    document.getElementById('newLatitude').value= e.latlng.lat;
+    document.getElementById('newLongitude').value= e.latlng.lng;
+  });
+ 
 </script>

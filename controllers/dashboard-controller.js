@@ -20,7 +20,7 @@ export const dashboardController = {
   //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
   //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
   //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
-
+    
     response.render("dashboard-view", viewData);
   },
 

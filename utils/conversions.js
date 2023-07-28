@@ -31,27 +31,27 @@ export const conversions = {
    */
   convertToBeaufort(windSpeed) {
     let beaufort = 0;
-    if (windSpeed == 1) {
+    if (windSpeed < 2) {
       beaufort = 0;
-    } else if (windSpeed >= 2 && windSpeed <= 5) {
+    } else if (windSpeed >= 2 && windSpeed < 6) {
       beaufort = 1;
-    } else if (windSpeed >= 6 && windSpeed <= 11) {
+    } else if (windSpeed >= 6 && windSpeed < 12) {
       beaufort = 2;
-    } else if (windSpeed >= 12 && windSpeed <= 19) {
+    } else if (windSpeed >= 12 && windSpeed < 20) {
       beaufort = 3;
-    } else if (windSpeed >= 20 && windSpeed <= 28) {
+    } else if (windSpeed >= 20 && windSpeed < 29) {
       beaufort = 4;
-    } else if (windSpeed >= 29 && windSpeed <= 38) {
+    } else if (windSpeed >= 29 && windSpeed < 39) {
       beaufort = 5;
-    } else if (windSpeed >= 39 && windSpeed <= 49) {
+    } else if (windSpeed >= 39 && windSpeed < 50) {
       beaufort = 6;
-    } else if (windSpeed >= 50 && windSpeed <= 61) {
+    } else if (windSpeed >= 50 && windSpeed < 62) {
       beaufort = 7;
-    } else if (windSpeed >= 62 && windSpeed <= 74) {
+    } else if (windSpeed >= 62 && windSpeed < 75) {
       beaufort = 8;
-    } else if (windSpeed >= 75 && windSpeed <= 88) {
+    } else if (windSpeed >= 75 && windSpeed < 89) {
       beaufort = 9;
-    } else if (windSpeed >= 89 && windSpeed <= 102) {
+    } else if (windSpeed >= 89 && windSpeed < 103) {
       beaufort = 10;
     } else if (windSpeed >= 103 && windSpeed <= 117) {
       beaufort = 11;

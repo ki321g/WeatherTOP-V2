@@ -42,6 +42,20 @@
       "longitude": "-7.149295",
       "userid": "dcf5655c-0dfa-4312-a57c-0bfe1553ee81",
       "_id": "3ba8e9e6-0fef-444f-910c-8720009bea02"
+    },
+    {
+      "name": "CORK",
+      "latitude": "51.93114167246838",
+      "longitude": "-8.0561370839132",
+      "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
+      "_id": "4211c000-afe1-4e88-960f-08e93cd3b5bf"
+    },
+    {
+      "name": "FERMOY RURAL",
+      "latitude": "52.16382422414709",
+      "longitude": "-6.791198726277799",
+      "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
+      "_id": "7cc169b1-9c70-4477-8262-fbefc91affab"
     }
   ]
 }
