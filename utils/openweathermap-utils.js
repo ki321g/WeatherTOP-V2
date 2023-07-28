@@ -24,6 +24,7 @@ export const openWeatherMap = {
       }
       return newReading;
     }
+    
     return null;
   },
 

@@ -43,17 +43,19 @@ export const dashboardController = {
     console.log(`adding station ${newStation.name}`);
 
     const station = await stationStore.addStation(newStation);
-
+    console.log(`Testing past addStation ${station._id}`);
     console.log(`GenerateReading: ${request.body.generateReading}`);
     
     if (generateReading.includes("on")) {
+      const newStation = await stationStore.getStationById(station._id);
+
       const newReading = await openWeatherMap.generateReading(
-        station.latitude,
-        station.longitude,
+        newStation.latitude,
+        newStation.longitude,
         process.env.OPENWEATHERMAP_API_KEY
-      );
+      );       
   
-      const reading = await readingStore.addReading(station._id, newReading);
+      const reading = await readingStore.addReading(newStation._id, newReading);
     };
 
     response.redirect("/station/" + station._id); 
