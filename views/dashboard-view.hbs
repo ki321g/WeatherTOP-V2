@@ -30,7 +30,7 @@
             <!-- Stations MAP -->         
             {{> map}}
         {{else}}
-            {{> addfirststation}}  
+           {{> map}} <!--  {{> addfirststation}}  -->
         {{/if}}        
             
         <!-- List Stations -->
@@ -88,7 +88,7 @@
     </div>
 </section>
 <!-- Modal Start --> 
-<dialog id="modal-delete-station" class="modal p-1" style=" z-index: 9999;">
+<dialog id="modal-delete-station" class="modal p-1" style=" z-index: 999999;">
     <div class="modal-card">
         <header class="modal-card-head has-background-info py-0">
             <p class="modal-card-title has-text-weight-semi-bold is-uppercase has-text-white is-size-5 py-4">Delete

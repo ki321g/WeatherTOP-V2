@@ -1,44 +1,23 @@
 
-        <div id="map" class="mapBorderColor" style="height: 450px;">
-           <!-- ADD Station -->
-         {{> addstation}}  
-        </div>
+<div id="map" class="mapBorderColor" style="height: 450px;">
+    <!-- ADD Station -->
+  {{> addstation}}  
+</div>
 
 <script>
-  //import axios from "axios";
+// Initializes map
+const map = L.map('map'); 
 
-  let map = L.map('map')
-  let openStreetMapLayer = L.tileLayer(
-    'https://tile.openstreetmap.org/{z}/{x}/{y}.png', 
-    { maxZoom:19, attribution: '© OpenStreetMap' }
-  );
-  openStreetMapLayer.addTo(map);
-  
-  let marker;
-  let avgLat = avgLng = 0;
-  {{#each stations}}
-    marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{name}}"});
-    marker.bindPopup("<h1><strong>{{name}}</strong></h1>" 
-             + "LatLng(" + {{latitude}} + "," 
-             + {{longitude}} + ")"
-             + "<br>"
-             + "<a href='/station/{{_id}}'>View Station Readings</a>"
-             );
-    marker.addTo(map);
+// Sets initial coordinates and zoom level
+map.setView([52.161435, -7.149295], 8); 
+// Disables double click zoom
+map.doubleClickZoom.disable();
 
-    avgLat += {{latitude}};
-    avgLng += {{longitude}};
-  {{/each}}
-  avgLat /= {{stations.length}};
-  avgLng /= {{stations.length}};
-
-  map.setView([avgLat, avgLng], 7);
-  map.doubleClickZoom.disable();
-
-  map.on('dblclick', function(e) {
-     document.getElementById('newName').value = "";
-     document.getElementById('newLatitude').value = "";
-    document.getElementById('newLongitude').value = "";
+// Updates Input Fields on double click
+map.on('dblclick', function(e) {
+  document.getElementById('newName').value = "";
+  document.getElementById('newLatitude').value = "";
+  document.getElementById('newLongitude').value = "";
 
     console.log("Latitude: " + e.latlng.lat);
     console.log("Longitude: " + e.latlng.lng);   
@@ -55,6 +34,70 @@
     });
     document.getElementById('newLatitude').value= e.latlng.lat;
     document.getElementById('newLongitude').value= e.latlng.lng;
-  });
- 
+  }); 
+
+// Sets map data source and associates with map
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '© OpenStreetMap'
+}).addTo(map); 
+
+let marker, circle, zoomed;
+
+// Checks if geolocation is available when we have no stations.
+{{#if (lt stations.length 1)}}            
+  navigator.geolocation.watchPosition(success, error);
+{{/if}}   
+
+// Sets average lat and lng to 0
+let avgLat = avgLng = 0;
+// Iterates through stations and adds markers to map
+{{#each stations}}
+  marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{name}}"});
+  marker.bindPopup("<h1><strong>{{name}}</strong></h1>" 
+            + "LatLng(" + {{latitude}} + "," 
+            + {{longitude}} + ")"
+            + "<br>"
+            + "<a href='/station/{{_id}}'>View Station Readings</a>"
+            );
+  marker.addTo(map);
+  
+  avgLat += {{latitude}};
+  avgLng += {{longitude}};
+{{/each}}
+// Calculates average lat and lng
+avgLat /= {{stations.length}};
+avgLng /= {{stations.length}};
+// Sets map view to average lat and lng
+map.setView([avgLat, avgLng], 6);
+map.doubleClickZoom.disable();
+// Adds locate control to map
+L.control.locate().addTo(map);
+
+// Function if geolocation is available
+function success(pos) {
+    const lat = pos.coords.latitude;
+    const lng = pos.coords.longitude;
+    const accuracy = pos.coords.accuracy;
+    
+    // Adds circle for accuracy
+    circle = L.circle([lat, lng], { radius: accuracy }).addTo(map);
+
+    // Set zoom to boundaries of accuracy circle
+    if (!zoomed) {
+        zoomed = map.fitBounds(circle.getBounds()); 
+    }   
+
+    // Set map focus to current user position
+    map.setView([lat, lng]);  
+}
+// Function if geolocation is not available
+function error(err) {
+    // Alert user
+    if (err.code === 1) {
+        alert("Please allow geolocation access");
+    } else {
+        alert("Cannot get current location");
+    }
+}
 </script>

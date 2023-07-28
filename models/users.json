@@ -28,6 +28,13 @@
       "email": "m@g.com",
       "password": "1234567",
       "_id": "dcf5655c-0dfa-4312-a57c-0bfe1553ee81"
+    },
+    {
+      "firstname": "Test",
+      "lastname": "Tester",
+      "email": "t@t.com",
+      "password": "1234567",
+      "_id": "ec8eda83-ea88-4071-abcd-4caaca3c5337"
     }
   ]
 }
