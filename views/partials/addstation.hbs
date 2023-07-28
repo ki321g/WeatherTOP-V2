@@ -1,9 +1,9 @@
 <div class="container p-2">
   <div class="columns is-12">
     <div class="column is-8"><!-- Blank --></div>
-    <div class="column is-3 mt-6 " style="z-index: 99999;">
+    <div id="stationInputs" class="column is-3 mt-6 " style="z-index: 99999;">
       <section class="columns is-centered">
-        <div class="container column is-12 has-background-white addStationBorderColor" style="opacity: 0.85; ">
+        <div class="container column is-12 has-background-white addStationBorderColor" style="opacity: 0.95; ">
           <form name="addStation" action="/dashboard/addstation" onsubmit="return validateStationForm()" method="POST">
             <div class="container mx-4 my-0">
               <div class="field">
@@ -39,6 +39,18 @@
                     class="showError has-background-danger has-text-centered has-text-white mt-1"
                   ></div>
                 </div>
+              </div>            
+              <div class="field has-text-centered">  
+                <span class="control">
+                  <label class="is-checkbox is-static">
+                    <input id="mycheckbox" checked="checked" type="hidden" value="0" name="generateReading">
+                    <input id="mycheckbox" checked="checked" type="checkbox" name="generateReading">
+                    <span  class="icon checkmark">
+                      <i class="fa fa-check"></i>
+                    </span>
+                    <span>Generate Weather Reading</span>
+                  </label>
+                </span>  
               </div>
             </div>
             <div class="column is-12 py-2">

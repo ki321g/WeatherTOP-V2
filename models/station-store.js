@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 import { initStore } from "../utils/store-utils.js";
 import { readingStore } from "./reading-store.js";
+import { openWeatherMap } from "../utils/openweathermap-utils.js";
 
 const db = initStore("stations");
 

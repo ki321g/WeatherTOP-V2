@@ -1,6 +1,7 @@
 import { stationStore } from "../models/station-store.js";
 import { latestReadings } from "../utils/analytics.js";
 import { accountsController } from "./accounts-controller.js";
+import { stationController } from "./station-controller.js";
 
 export const dashboardController = {
   /*
@@ -37,8 +38,13 @@ export const dashboardController = {
     };
     console.log(`adding station ${newStation.name}`);
     await stationStore.addStation(newStation);
-    ///station/{{_id}}
-    response.redirect("/station/" + newStation._id);
+
+    //console.log(`GenerateReading: ${request.body.generateReading}`);
+    if (request.body.generateReading != 0) {
+      await stationController.generateInitalReading(newStation._id);
+    };
+    
+   response.redirect("/station/" + newStation._id);
   },
 
   /*

@@ -109,9 +109,21 @@ export const stationController = {
       station.latitude,
       station.longitude,
       process.env.OPENWEATHERMAP_API_KEY
-    );
+    );    
 
     await readingStore.addReading(stationId, newReading);
     response.redirect("/station/" + stationId);
+  },
+
+  async generateInitalReading(stationId) {
+    const station = await stationStore.getStationById(stationId);
+
+    const newReading = await openWeatherMap.generateReading(
+      station.latitude,
+      station.longitude,
+      process.env.OPENWEATHERMAP_API_KEY
+    );
+
+    await readingStore.addReading(stationId, newReading);
   },
 };

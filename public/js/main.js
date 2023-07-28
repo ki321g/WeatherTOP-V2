@@ -10,12 +10,12 @@ burgerIcon.addEventListener('click', () => {
 
 // Validates addReading Form
 function validateReadingForm() {
-    var valid = true;
-    var checkCode = document.forms["addReading"]["code"].value;
-    var checkTemperature = document.forms["addReading"]["temperature"].value;
-    var checkWindSpeed = document.forms["addReading"]["windSpeed"].value;
-    var checkWindDirection = document.forms["addReading"]["windDirection"].value;
-    var checkPressure = document.forms["addReading"]["pressure"].value;
+    let valid = true;
+    let checkCode = document.forms["addReading"]["code"].value;
+    let checkTemperature = document.forms["addReading"]["temperature"].value;
+    let checkWindSpeed = document.forms["addReading"]["windSpeed"].value;
+    let checkWindDirection = document.forms["addReading"]["windDirection"].value;
+    let checkPressure = document.forms["addReading"]["pressure"].value;
 
     if (checkCode == "") {
         document.forms["addReading"]["code"].classList.add('is-danger');
@@ -80,15 +80,19 @@ function validateReadingForm() {
 
 // Validates addStationForm
 function validateStationForm() {
-    var valid = true;
-    var checkName = document.forms["addStation"]["name"].value;
-    var checkLatitude = document.forms["addStation"]["latitude"].value;
-    var checkLongitude = document.forms["addStation"]["longitude"].value;
+    let valid = true;
+    let gotErrorName = gotErrorLatitude = gotErrorLongitude = false;
+    let gotError = 0;
+    let checkName = document.forms["addStation"]["name"].value;
+    let checkLatitude = document.forms["addStation"]["latitude"].value;
+    let checkLongitude = document.forms["addStation"]["longitude"].value;
 
     if (checkName == "") {
         document.forms["addStation"]["name"].classList.add('is-danger');
         document.getElementById("errName").style.display = 'block';
         document.getElementById("errName").innerHTML = "Enter the Station Name";
+        gotErrorName = true;  
+        gotError++;       
         valid = false;
     } else {
         document.forms["addStation"]["name"].classList.add('is-success');
@@ -101,6 +105,8 @@ function validateStationForm() {
         document.forms["addStation"]["latitude"].classList.add('is-danger');
         document.getElementById("errLatitude").style.display = "block";
         document.getElementById("errLatitude").innerHTML = "Enter Latitude";
+        gotErrorLatitude = true;
+        gotError++;
         valid = false;
     } else {
         if (checkLatitude >= -90 && checkLatitude <= 90) {
@@ -112,6 +118,8 @@ function validateStationForm() {
             document.forms["addStation"]["latitude"].classList.add('is-danger');
             document.getElementById("errLatitude").style.display = "block";
             document.getElementById("errLatitude").innerHTML = "Between -90 and 90";
+            gotErrorLatitude = true;
+            gotError++;
             valid = false;
         }
     }
@@ -120,6 +128,8 @@ function validateStationForm() {
         document.forms["addStation"]["longitude"].classList.add('is-danger');
         document.getElementById("errLongitude").style.display = "block";
         document.getElementById("errLongitude").innerHTML = "Enter Longitude";
+        gotErrorLongitude = true;
+        gotError++;
         valid = false;
     } else {
         if (checkLongitude >= -180 && checkLongitude <= 180) {
@@ -131,8 +141,24 @@ function validateStationForm() {
             document.forms["addStation"]["longitude"].classList.add('is-danger');
             document.getElementById("errLongitude").style.display = "block";
             document.getElementById("errLongitude").innerHTML = "Between -180 and 180";
+            gotErrorLongitude = true;
+            gotError++;
             valid = false;
         }
+    }
+    console.log(`NameError: ${gotErrorName}`);
+    console.log(`NameValue: ${document.forms["addStation"]["name"].value}`);
+    
+    if (gotError >= 3) {
+        document.getElementById("stationInputs").classList.remove('mt-6')
+        document.getElementById("stationInputs").classList.add('mt-2');
+    } else if (gotError == 2 || gotError == 1) {
+        document.getElementById("stationInputs").classList.remove('mt-6')
+        document.getElementById("stationInputs").classList.add('mt-5');
+    } 
+   
+    if (gotErrorName == true || gotErrorLatitude == true || gotErrorLongitude == true) {
+        valid = false;
     }
 
     return valid;
@@ -140,12 +166,12 @@ function validateStationForm() {
 
 // Validates RegisterForm
 function validateRegisterForm() {
-    var valid = true;
-    var checkFirstName = document.forms["frmRegister"]["firstname"].value;
-    var checkLastName = document.forms["frmRegister"]["lastname"].value;
-    var checkEmail = document.forms["frmRegister"]["email"].value;
-    var checkPassword = document.forms["frmRegister"]["password"].value;
-    var checkConfirmPassword = document.forms["frmRegister"]["confirm_password"].value;
+    let valid = true;
+    let checkFirstName = document.forms["frmRegister"]["firstname"].value;
+    let checkLastName = document.forms["frmRegister"]["lastname"].value;
+    let checkEmail = document.forms["frmRegister"]["email"].value;
+    let checkPassword = document.forms["frmRegister"]["password"].value;
+    let checkConfirmPassword = document.forms["frmRegister"]["confirm_password"].value;
 
     if (checkFirstName == "") {
         document.forms["frmRegister"]["firstname"].classList.add('is-danger');
