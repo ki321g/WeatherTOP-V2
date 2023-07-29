@@ -3,35 +3,29 @@
 <div class="box has-background-dark weather-box pb-3">
   <div class="columns is-gapless is-multiline is-mobile has-text-white">
     <div class="column is-full mb-0">
-      <div class="columns is-mobile is-gapless is-vcentered">
-        <div class="column is-half is-one-thirds-mobile">
-          <!-- content for the Station name -->
-          <h4
-            class="title is-size-3-desktop is-size-5-mobile is-size-5-tablet is-uppercase has-text-weight-bold has-text-white"
-          >
-            {{name}}{{station.name}}</h4>
-        </div>
-        <div class="column">
-          <div class="column has-text-weight-bold has-text-right p-0">
-            <!-- content for the Latitude -->
-            Latitude:
-          </div>
-          <div class="column has-text-weight-bold has-text-right p-0">
-            <!-- content for Longitude -->
-            Longitude:
-          </div>
-        </div>
-        <div class="column">
-          <div class="column has-text-weight-bold has-text-right py-0 px-2">
-            <!-- content for the Latitude -->
-            {{latitude}}{{station.latitude}}           
-          </div>
-          <div class="column has-text-weight-bold has-text-right py-0 px-2">
-            <!-- content for Longitude -->
-            {{longitude}}{{station.longitude}}            
-          </div>
-        </div>
+      
+       <!-- Top Row -->
+    <div class="columns mb-0">
+      <div class="column is-12 pb-0">
+        <!-- Content for the top row -->
+        <h4 class="title is-size-4-desktop is-size-5-mobile is-size-5-tablet is-uppercase has-text-weight-bold has-text-white">
+          {{name}}{{station.name}}
+        </h4>
       </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="columns has-text-centered">
+      <div class="column is-6">
+        <!-- Content for the first column in the second row -->
+        <b>Lat:</b> {{latitude}}{{station.latitude}}
+      </div>
+      <div class="column is-6">
+        <!-- Content for the second column in the second row -->
+        <b>Long:</b> {{longitude}}{{station.longitude}} 
+      </div>
+    </div>
+
     </div>
     
     <div class="column is-one-third has-text-centered">

@@ -2,7 +2,7 @@ import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
 import { latestReadings } from "../utils/analytics.js";
 import { accountsController } from "./accounts-controller.js";
-//import { stationController } from "./station-controller.js";
+import { stationController } from "./station-controller.js";
 import { openWeatherMap } from "../utils/openweathermap-utils.js";
 
 export const dashboardController = {
@@ -47,15 +47,15 @@ export const dashboardController = {
     console.log(`GenerateReading: ${request.body.generateReading}`);
     
     if (generateReading.includes("on")) {
-      const newStation = await stationStore.getStationById(station._id);
-
-      const newReading = await openWeatherMap.generateReading(
-        newStation.latitude,
-        newStation.longitude,
-        process.env.OPENWEATHERMAP_API_KEY
-      );       
+     // const newStation = await stationStore.getStationById(station._id);
+      const newReading = await stationController.generateInitalReading(station._id);
+    //  const newReading = await openWeatherMap.generateReading(
+    //    newStation.latitude,
+    //    newStation.longitude,
+    //    process.env.OPENWEATHERMAP_API_KEY
+    //  );       
   
-      const reading = await readingStore.addReading(newStation._id, newReading);
+   //   const reading = await readingStore.addReading(newStation._id, newReading);
     };
 
     response.redirect("/station/" + station._id); 

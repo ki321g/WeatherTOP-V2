@@ -115,7 +115,7 @@ export const stationController = {
     response.redirect("/station/" + stationId);
   },
 
- /* async generateInitalReading(stationId) {
+  async generateInitalReading(stationId) {
     const station = await stationStore.getStationById(stationId);
 
     const newReading = await openWeatherMap.generateReading(
@@ -124,7 +124,8 @@ export const stationController = {
       process.env.OPENWEATHERMAP_API_KEY
     );
 
-    await readingStore.addReading(stationId, newReading);
+    const returnNewReading = await readingStore.addReading(stationId, newReading);
+    return returnNewReading;
   },
-  */
+  
 };

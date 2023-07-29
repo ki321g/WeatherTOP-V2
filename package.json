@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js -e js,hbs,mjs,cjs,json"
+    "start": "nodemon --delay 1 server.js -e js,hbs,mjs,cjs,json"
   },
   "dependencies": {
     "axios": "^1.4.0",
