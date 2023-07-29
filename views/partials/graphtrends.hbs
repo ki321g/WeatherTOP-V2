@@ -1,0 +1,24 @@
+<table class="table is-fullwidth is-bordered is-hoverable is-striped is-narrow ">
+                                        <thead>
+                                        <tr class="is-selected has-background-dark is-uppercase is-size-6">
+                                            <th class="has-text-centered">Graph Future Trends</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="has-text-centered py-3">
+                                            {{> chart id="temp-chart" name="Temperature" values=dailyReadings.temperature labels=dailyReadings.labels}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="has-text-centered py-3">
+                                            {{> chart id="wind-speed-chart" name="Wind Speed" values=dailyReadings.windSpeed labels=dailyReadings.labels}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="has-text-centered py-3">
+                                            {{> chart id="pressure-chart" name="Pressure" values=dailyReadings.pressure labels=dailyReadings.labels}}  
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>       

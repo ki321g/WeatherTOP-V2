@@ -42,9 +42,7 @@
                             <div class="column is-centered mt-0">
                                 <div class="table-container">
                                     {{> listreadings}}
-                                     {{> chart id="temp-chart" name="Temperature" values=dailyReadings.temperature labels=dailyReadings.labels}}
-                                    {{> chart id="wind-speed-chart" name="Wind Speed" values=dailyReadings.windSpeed labels=dailyReadings.labels}}
-                                    {{> chart id="pressure-chart" name="Pressure" values=dailyReadings.pressure labels=dailyReadings.labels}}                                    
+                                    {{> graphtrends}}              
                                 </div>
                             </div>
                         </div>

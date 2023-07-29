@@ -56,6 +56,20 @@
       "longitude": "-6.791198726277799",
       "userid": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9",
       "_id": "7cc169b1-9c70-4477-8262-fbefc91affab"
+    },
+    {
+      "name": "TRAMORE",
+      "latitude": "52.16266593009988",
+      "longitude": "-7.166776657104492",
+      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
+      "_id": "86c51270-f6e2-4f42-bdef-73a3168490c2"
+    },
+    {
+      "name": "GLENCULLEN ELECTORAL DIVISION",
+      "latitude": "53.25206880589414",
+      "longitude": "-6.251220703125001",
+      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
+      "_id": "bb1111d8-3003-4f8c-9ea3-4b54fd819eb7"
     }
   ]
 }
