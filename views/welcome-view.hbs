@@ -1,4 +1,8 @@
-{{> menu active="home"}}
+{{#if UserLoggedIn}}  
+    {{> membersmenu active="home"}}
+{{else}}
+  {{> menu active="home"}}
+{{/if}}
 
 <!-- Flash Message End -->
 <!-- Content Start -->

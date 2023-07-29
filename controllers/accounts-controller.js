@@ -4,18 +4,22 @@ import { stationStore } from "../models/station-store.js";
 export const accountsController = {
   async profile(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
+    let UserLoggedIn = Boolean(request.cookies.weathertop);
 
     const viewData = {
       title: "User Profile",
       user: loggedInUser,
+      UserLoggedIn: UserLoggedIn
     };
     console.log("\nRendering: Profile-View");
     response.render("profile-view", viewData);
   },
 
   login(request, response) {
+    let UserLoggedIn = Boolean(request.cookies.weathertop);
     const viewData = {
       title: "Login to the Service",
+      UserLoggedIn: UserLoggedIn
     };
     console.log("\nRendering: Login-View");
     response.render("login-view", viewData);
@@ -27,8 +31,10 @@ export const accountsController = {
   },
 
   signup(request, response) {
+    let UserLoggedIn = Boolean(request.cookies.weathertop);
     const viewData = {
       title: "Login to the Service",
+      UserLoggedIn: UserLoggedIn
     };
     console.log("\nRendering: Signup-View");
     response.render("signup-view", viewData);

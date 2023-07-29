@@ -1,4 +1,8 @@
-{{> menu active="sign up"}}
+{{#if UserLoggedIn}}  
+    {{> membersmenu active="sign up"}}
+{{else}}
+  {{> menu active="sign up"}}
+{{/if}}
 
 <!-- Sign up Start -->
 <!-- Content Start -->

@@ -1,4 +1,8 @@
-{{> menu active="about"}}
+{{#if UserLoggedIn}}  
+    {{> membersmenu active="about"}}
+{{else}}
+  {{> menu active="about"}}
+{{/if}}
 
 <!-- About Start -->
 <!-- Content Start -->
