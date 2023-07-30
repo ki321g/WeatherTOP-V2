@@ -5,9 +5,18 @@ import { accountsController } from "./accounts-controller.js";
 import { stationController } from "./station-controller.js";
 import { openWeatherMap } from "../utils/openweathermap-utils.js";
 
+/**
+ * This class handles things related to the Dashboard
+ *
+ * @author Kieron GArvey
+ * @version 0.1
+ */
 export const dashboardController = {
-  /*
-   * Render Dashboard
+  /**
+   * index() - This method renders dasboard. passing in the relevant Stations,
+   * It gets the the logged in member then uses this member
+   * to get the relevant Staions and then Sorts the Stations
+   *
    */
   async index(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
@@ -27,8 +36,20 @@ export const dashboardController = {
     response.render("dashboard-view", viewData);
   },
 
-  /*
-   * Add Station to Dashboard
+  /**
+   * addStation() - This method redirects to station url
+   * Method uses passed in params to create a new Station
+   * for teh logged in member then redirects the member to
+   * the new station.
+   * 
+   * Depending on the generateReading parameter, a new reading is generated
+   * if the generateReading parameter is includes to "on"
+   *
+   * The following parameters are passed into the method in the request body:
+   * @param name      Station name
+   * @param latitude  Station latitude
+   * @param longitude Station longitude
+   * @param generateReading  Generate a reading for the new station
    */
   async addStation(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
@@ -47,23 +68,19 @@ export const dashboardController = {
     console.log(`GenerateReading: ${request.body.generateReading}`);
     
     if (generateReading.includes("on")) {
-     // const newStation = await stationStore.getStationById(station._id);
       const newReading = await stationController.generateInitalReading(station._id);
-    //  const newReading = await openWeatherMap.generateReading(
-    //    newStation.latitude,
-    //    newStation.longitude,
-    //    process.env.OPENWEATHERMAP_API_KEY
-    //  );       
-  
-   //   const reading = await readingStore.addReading(newStation._id, newReading);
     };
 
     response.redirect("/station/" + station._id); 
    
   },
 
-  /*
-   * Delete Station
+  /**
+   * deletestation() - This method redirects to dashboard url
+   * Method uses passed in Station ID delete the station.
+   *
+   * The following parameters are passed into the method in the request body:
+   * @param id Station ID
    */
   async deleteStation(request, response) {
     const stationId = request.params.id;

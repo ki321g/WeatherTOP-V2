@@ -1,3 +1,9 @@
+/**
+ * This class renders the Welcome page
+ *
+ * @author Kieron GArvey
+ * @version 0.1
+ */
 export const welcomeController = {
   /*
    * Render Welcome Page
@@ -7,7 +13,7 @@ export const welcomeController = {
     console.log("UserLoggedIn: " + UserLoggedIn);
     const viewData = {
       title: "Welcome to WeatherTOP",
-      UserLoggedIn: UserLoggedIn
+      UserLoggedIn: UserLoggedIn,
     };
     console.log("\nRendering: Welcome-View");
     response.render("welcome-view", viewData);
