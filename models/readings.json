@@ -170,6 +170,46 @@
       "pressure": 1002,
       "_id": "84b004c3-2995-4350-a7f2-8c10170bd019",
       "stationid": "bb1111d8-3003-4f8c-9ea3-4b54fd819eb7"
+    },
+    {
+      "timeStamp": "30/07/2023, 12:35:24",
+      "code": 600,
+      "temperature": 13.77,
+      "windSpeed": 2.27,
+      "windDirection": 187,
+      "pressure": 1007,
+      "_id": "dd542aea-bc14-451b-bd64-7106da466ebe",
+      "stationid": "6591aefd-397f-45a7-a96f-4bed334cd613"
+    },
+    {
+      "timeStamp": "30/07/2023, 12:36:06",
+      "code": 300,
+      "temperature": 16.72,
+      "windSpeed": 3.09,
+      "windDirection": 189,
+      "pressure": 1007,
+      "_id": "3145e559-5db1-4999-9fe5-4f04d2144305",
+      "stationid": "b3442003-300f-462f-a925-2bd2cbaf8934"
+    },
+    {
+      "timeStamp": "30/07/2023, 12:39:34",
+      "code": 300,
+      "temperature": 15.81,
+      "windSpeed": 6.38,
+      "windDirection": 209,
+      "pressure": 1005,
+      "_id": "7adf7ddc-e00c-4428-a488-76a77c3118f1",
+      "stationid": "476a915e-a384-4fe8-86e0-01d65f681fb7"
+    },
+    {
+      "timeStamp": "30/07/2023, 12:42:28",
+      "code": 300,
+      "temperature": 15.83,
+      "windSpeed": 4.04,
+      "windDirection": 202,
+      "pressure": 1007,
+      "_id": "4e4f36de-d8d6-48bb-a989-fb75dc274b52",
+      "stationid": "b3378613-3f65-40b2-89b3-a561fc3e14a8"
     }
   ]
 }

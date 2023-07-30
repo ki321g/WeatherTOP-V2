@@ -1,3 +1,5 @@
 node_modules/
 .vscode
 .env
+models/readings.json
+models/stations.json
