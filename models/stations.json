@@ -58,53 +58,11 @@
       "_id": "7cc169b1-9c70-4477-8262-fbefc91affab"
     },
     {
-      "name": "TRAMORE",
-      "latitude": "52.16266593009988",
-      "longitude": "-7.166776657104492",
+      "name": "TAYLOR'S HILL",
+      "latitude": "53.27342595846812",
+      "longitude": "-9.078826904296877",
       "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "86c51270-f6e2-4f42-bdef-73a3168490c2"
-    },
-    {
-      "name": "GLENCULLEN ELECTORAL DIVISION",
-      "latitude": "53.25206880589414",
-      "longitude": "-6.251220703125001",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "bb1111d8-3003-4f8c-9ea3-4b54fd819eb7"
-    },
-    {
-      "name": "MOUNTRATH ED",
-      "latitude": "53.028000167735165",
-      "longitude": "-7.481689453125001",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "6591aefd-397f-45a7-a96f-4bed334cd613"
-    },
-    {
-      "name": "RATHLYNIN",
-      "latitude": "52.522905940278065",
-      "longitude": "-8.074951171875002",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "b3442003-300f-462f-a925-2bd2cbaf8934"
-    },
-    {
-      "name": "BEAGH ED",
-      "latitude": "53.04121304075649",
-      "longitude": "-8.843994140625002",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "0c08faaa-80cf-4914-a4fc-a23eeca95ecf"
-    },
-    {
-      "name": "BEAGH ED",
-      "latitude": "53.04121304075649",
-      "longitude": "-8.843994140625002",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "476a915e-a384-4fe8-86e0-01d65f681fb7"
-    },
-    {
-      "name": "DOOCARRIG ED",
-      "latitude": "52.03897658307622",
-      "longitude": "-9.261474609375002",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "b3378613-3f65-40b2-89b3-a561fc3e14a8"
+      "_id": "ea64fc60-cace-44fd-a8e3-b45db27c63e7"
     }
   ]
 }
