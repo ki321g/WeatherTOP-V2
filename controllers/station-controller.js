@@ -33,15 +33,10 @@ export const stationController = {
       station.longitude,
       process.env.OPENWEATHERMAP_API_KEY
     );
-
-    let displayReadings = false;
-    if (stationReadings.lastReading !== null) {
-      displayReadings = true;
-    }
+    
     const viewData = {
       station: station,
       dailyReadings: dailyReadings,
-      displayReading: displayReadings,
     };
 
     Object.assign(viewData, stationReadings.reading);
