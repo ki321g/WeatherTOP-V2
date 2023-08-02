@@ -3,36 +3,14 @@
 <!-- Content Start -->
 <section class="section pt-5 pb-3">
     <div class="container">
-        <!-- Hero Welcome USer -->
-        <section class="hero is-info welcome is-small">
-            <div class="columns is-vcentered">
-                <div class="column">
-                    <div class="hero-body">
-                        <div class="container">
-                            <h1 class="title is-uppercase  is-size-3">
-                                <span class="has-text-white has-text-weight-bold">Your Weather</span><span
-                                    class="has-text-warning">Top</span>
-                                <span class="has-text-white has-text-weight-bold">Stations</span>
-                            </h1>
-                            <h2 class="subtitle">
-                                Below is a list of all your current stations
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="column">             
-                </div>
-            </div>
-        </section>
-        <!-- Hero Welcome User End-->
+        {{> hero heroName="Dashboard" }}      
         <!-- Stations -->
         {{#if (gte stations.length 1)}}            
             <!-- Stations MAP -->         
             {{> map}}
         {{else}}
            {{> map}} 
-        {{/if}}        
-            
+        {{/if}}      
         <!-- List Stations -->
         {{#each stations}}
         <!-- Station#{{_id}}: {{name}} -->

@@ -38,15 +38,15 @@ export const handlebarsHelpers = {
       return 0;
     }
   },
-  // MAPS Set Station Inputs
- // stationInputs: async function (a, b) {
-  //  const requestUrl = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${a}&lon=${b}`;
-   // const response = await axios.get(requestUrl);
- //   console.log("stationInputs: Lat " + a + " Lng " + b);
-    
-  //  return "stationInputs";
-  //},
-   // testing
+  // If Station
+  ifStation: function (a) {
+   if (a === "Station") {
+     return 1;
+   } else {
+     return 0;
+   }
+ },
+ // testing
    test: function (a, b) {
     if (a >= b) {
       return "Test";

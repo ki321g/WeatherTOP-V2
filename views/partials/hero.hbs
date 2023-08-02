@@ -1,0 +1,28 @@
+<!-- Hero Welcome User -->
+<section class="hero is-info welcome is-small">
+  <div class="columns is-vcentered">
+    <div class="column is-8">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title is-uppercase is-size-3">
+            <span class="has-text-white has-text-weight-bold">Weather</span><span class="has-text-warning">Top</span>
+            <span class="has-text-white has-text-weight-bold">APP
+              {{#if (ifStation heroName)}}
+                {{heroName}}: {{station.name}}
+              {{else}}
+                {{heroName}}
+              {{/if}}
+            </span>
+          </h1>
+          <!--        <h2 class="subtitle">
+                                Below is a list of all your current stations
+                            </h2>
+                       -->
+        </div>
+      </div>
+    </div>
+    <div class="column">
+    </div>
+  </div>
+</section>
+<!-- Hero Welcome User End-->
