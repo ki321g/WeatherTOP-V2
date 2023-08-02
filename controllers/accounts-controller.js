@@ -16,8 +16,14 @@ export const accountsController = {
    */
   async profile(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
-    let UserLoggedIn = Boolean(request.cookies.weathertop);
 
+    if (loggedInUser === undefined) {
+      response.redirect("/login");
+      return;
+    };
+    
+    let UserLoggedIn = Boolean(request.cookies.weathertop);
+    
     const viewData = {
       title: "User Profile",
       user: loggedInUser,
@@ -156,7 +162,7 @@ export const accountsController = {
    * @return logged in member
    */
   async getLoggedInUser(request) {
-    const userEmail = request.cookies.LoggedInUser;
+    const userEmail = request.cookies.LoggedInUser;    
     return await userStore.getUserByEmail(userEmail);
   },
 

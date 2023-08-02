@@ -20,6 +20,11 @@ export const dashboardController = {
    */
   async index(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
+    
+    if (loggedInUser === undefined) {
+      response.redirect("/login");
+      return;
+    };
     const viewData = {
       title: "Station Dashboard",
       stations: await stationStore.getStationByUserId(loggedInUser._id),
@@ -29,10 +34,10 @@ export const dashboardController = {
       Object.assign(station, readingObject.reading);
     }
     console.log("\nRendering: Dashboard-View");
-  //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
-  //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
-  //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
-    
+    //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
+    //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
+    //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
+
     response.render("dashboard-view", viewData);
   },
 
@@ -41,7 +46,7 @@ export const dashboardController = {
    * Method uses passed in params to create a new Station
    * for teh logged in member then redirects the member to
    * the new station.
-   * 
+   *
    * Depending on the generateReading parameter, a new reading is generated
    * if the generateReading parameter is includes to "on"
    *
@@ -66,13 +71,12 @@ export const dashboardController = {
     const station = await stationStore.addStation(newStation);
     console.log(`Testing past addStation ${station._id}`);
     console.log(`GenerateReading: ${request.body.generateReading}`);
-    
+
     if (generateReading.includes("on")) {
       const newReading = await stationController.generateInitalReading(station._id);
-    };
+    }
 
-    response.redirect("/station/" + station._id); 
-   
+    response.redirect("/station/" + station._id);
   },
 
   /**
