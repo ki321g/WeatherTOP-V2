@@ -2,7 +2,6 @@
   "file": "./models/readings.json",
   "readings": [
     {
-      "_id": "66abe398-7b12-43c9-8aa9-4d0cb9758f34",
       "timeStamp": "31/07/2023, 00:19:46",
       "code": 800,
       "temperature": 0.5,
