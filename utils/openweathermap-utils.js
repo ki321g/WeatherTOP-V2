@@ -15,7 +15,8 @@ export const openWeatherMap = {
       const currentWeather = response.data.current;
       const newReading = {
         timeStamp: String(dateTime),
-        code: Number(codeConverter(currentWeather.weather[0].id)),
+        //code: Number(codeConverter(currentWeather.weather[0].id)),
+        code: Number(currentWeather.weather[0].id),
         temperature: Number(currentWeather.temp),
         windSpeed: Number(currentWeather.wind_speed),
         windDirection: Number(currentWeather.wind_deg),
@@ -55,6 +56,7 @@ export const openWeatherMap = {
  * @param Code from openweathermap
  * @return Code Used from Assignment SPEC
  */
+/*
 function codeConverter(code) {
   let returnCode = 0;
   if (code >= 200 && code <= 232) {
@@ -79,3 +81,4 @@ function codeConverter(code) {
 
   return returnCode;
 };
+*/
