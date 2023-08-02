@@ -13,6 +13,6 @@ export const catchAllController = {
       title: "Welcome to WeatherTOP",
     };
     console.log("\nRendering: 404");
-    response.render("/404", viewData);
+    response.render("404", viewData);
   },
 };

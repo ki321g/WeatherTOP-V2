@@ -23,6 +23,7 @@ export const latestReadings = async (id) => {
     latestReading = stationReadings.length - 1;
     reading.latestCode = stationReadings[latestReading].code;
     reading.latestCodeLabel = conversions.codeLabel(reading.latestCode);
+    reading.latestCodeIcon = conversions.codeIcon(reading.latestCode);
     reading.latestTemp = stationReadings[latestReading].temperature;
     reading.latestTempFahrenheit = conversions.convertToFahrenheit(reading.latestTemp);
     reading.minTemp = minMaxReadings(stationReadings, "temperature", "min");

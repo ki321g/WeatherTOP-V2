@@ -15,64 +15,7 @@
                 <label class="label mb-0">Code</label>
                 <div class="control">
                   <div id="selectCode" class="select is-fullwidth">
-                    <select name="code">
-                      <option value=""></option>
-                      <option value="200">200 - Thunderstorm Light Rain</option>
-                      <option value="201">201 - Thunderstorm Rain</option>
-                      <option value="202">202 - Thunderstorm Heavy Rain</option>
-                      <option value="210">210 - Light Thunderstorm</option>
-                      <option value="211">211 - Thunderstorm</option>
-                      <option value="212">212 - Heavy Thunderstorm</option>
-                      <option value="221">221 - Ragged Thunderstorm</option>
-                      <option value="230">230 - Thunderstorm Light Drizzle</option>
-                      <option value="231">231 - Thunderstorm Drizzle</option>
-                      <option value="232">232 - Thunderstorm Heavy Drizzle</option>
-                      <option value="300">300 - Light Drizzle</option>
-                      <option value="301">301 - Drizzle</option>
-                      <option value="302">302 - Heavy Drizzle</option>
-                      <option value="310">310 - Light Drizzle Rain</option>
-                      <option value="311">311 - Drizzle Rain</option>
-                      <option value="312">312 - Heavy Drizzle Rain</option>
-                      <option value="313">313 - Showers Rain/Drizzle</option>
-                      <option value="314">314 - Heavy Shower Rain/Drizzle</option>
-                      <option value="321">321 - Shower Drizzle </option>
-                      <option value="500">500 - Light Rain</option>
-                      <option value="501">501 - Moderate Rain</option>
-                      <option value="502">502 - Heavy Rain</option>
-                      <option value="503">503 - Very Heavy Rain</option>
-                      <option value="504">504 - Extreme Rain</option>
-                      <option value="511">511 - Freezing Rain</option>
-                      <option value="520">520 - Light Shower Rain</option>
-                      <option value="521">521 - Shower Rain</option>
-                      <option value="522">522 - Heavy Shower Rain</option>
-                      <option value="531">531 - Ragged Shower Rain</option>
-                      <option value="600">600 - Light Snow</option>
-                      <option value="601">601 - Snow</option>
-                      <option value="602">602 - Heavy Snow </option>
-                      <option value="611">611 - Sleet</option>
-                      <option value="612">612 - Light Sleet Showers</option>
-                      <option value="613">613 - Sleet Showers</option>
-                      <option value="615">615 - Light Rain and Snow</option>
-                      <option value="616">616 - Rain and Snow </option>
-                      <option value="620">620 - Light Snow Shower</option>
-                      <option value="621">621 - Snow Shower </option>
-                      <option value="622">622 - Heavy Snow Shower</option>
-                      <option value="623">623 - Flurries</option>
-                      <option value="701">701 - Mist</option>
-                      <option value="711">711 - Smoke</option>
-                      <option value="721">721 - Haze</option>
-                      <option value="731">731 - Sand/Dust Whirls </option>
-                      <option value="741">741 - Fog</option>
-                      <option value="751">751 - Sand</option>
-                      <option value="762">762 - Volcanic Ash</option>
-                      <option value="771">771 - Squalls</option>
-                      <option value="781">781 - Tornado</option>
-                      <option value="800">800 - Clear</option>
-                      <option value="801">801 - Partial Clouds</option>
-                      <option value="802">802 - Scattered Clouds</option>
-                      <option value="803">803 - Broken Clouds</option>
-                      <option value="804">804 - Overcast Clouds </option>
-                    </select>
+                    {{> selectcode id="addCode"}}
                   </div>
                   <div id="errCode" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
                 </div>
