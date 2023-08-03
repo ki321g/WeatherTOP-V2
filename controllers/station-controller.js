@@ -1,6 +1,6 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
-import { latestReadings } from "../utils/analytics.js";
+import { latestReadings } from "../utils/latestreadings.js";
 import { openWeatherMap } from "../utils/openweathermap-utils.js";
 import { accountsController } from "./accounts-controller.js";
 
@@ -21,11 +21,11 @@ export const stationController = {
    */
   async index(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
-    
+
     if (loggedInUser === undefined) {
       response.redirect("/login");
       return;
-    };
+    }
     const station = await stationStore.getStationById(request.params.id);
     let stationReadings = await latestReadings(request.params.id);
     const dailyReadings = await openWeatherMap.getDailyReadingsData(
@@ -33,7 +33,7 @@ export const stationController = {
       station.longitude,
       process.env.OPENWEATHERMAP_API_KEY
     );
-    
+
     const viewData = {
       station: station,
       dailyReadings: dailyReadings,

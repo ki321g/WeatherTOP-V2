@@ -1,6 +1,6 @@
 import { stationStore } from "../models/station-store.js";
 import { readingStore } from "../models/reading-store.js";
-import { latestReadings } from "../utils/analytics.js";
+import { latestReadings } from "../utils/latestreadings.js";
 import { accountsController } from "./accounts-controller.js";
 import { stationController } from "./station-controller.js";
 import { openWeatherMap } from "../utils/openweathermap-utils.js";
