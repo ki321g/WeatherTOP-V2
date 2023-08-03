@@ -1,0 +1,22 @@
+<div class="container is-12 mt-3 p-0">
+            <div class="card events-card ">
+                <header class="card-header has-background-info mb-2">
+                    <p class="card-header-title is-uppercase has-text-white is-size-4 py-2">
+                        <!--{{station.name}}-->
+                    <div class="empty-div"></div>
+                    </p>
+                </header>
+                    {{> latestreadings}}
+                        <div class="columns is-centered px-5">
+                            <div class="column is-centered mt-0">
+                                <div class="table-container">
+                                    {{> listreadings}}
+                                    {{> graphtrends}}              
+                                </div>
+                            </div>
+                        </div>
+                          <footer class="card-footer has-background-grey mt-0">
+                    <div class="empty-div is-size-4 py-2"></div>
+                </footer>
+            </div>
+        </div>           

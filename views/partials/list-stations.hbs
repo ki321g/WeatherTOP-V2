@@ -1,10 +1,50 @@
 {{#each stations}}
-<div class="box box-link-hover-shadow">
-  <h2 class="title">
-    <a href="/station/{{_id}}">
-      {{name}}
-    </a>
-  </h2>
-  {{> latest-readings}}
-</div>
-{{/each}}
+        <!-- Station#{{_id}}: {{name}} -->
+        <div class="column is-12 mt-3 p-0">
+            <div class="card events-card ">
+                <header class="card-header has-background-info mb-2">
+                    <p class="card-header-title is-uppercase has-text-white is-size-4 py-2">
+                    <div class="empty-div"></div>
+                    </p>
+                </header>
+                {{#if (gte readingsRecorded 1)}}
+                    {{> latestreadings}}
+                {{else}}
+                     <div class="container">
+						<a href="/station/{{_id}}">
+							<div class="tags has-addons is-centered my-5">
+								<span class="tag has-background-danger is-large is-uppercase has-text-weight-bold has-text-white m-0">{{name}} Station, Has no Readings Recorded</span>
+								<span class="tag is-info is-large has-text-weight-bold is-uppercase has-text-weight-bold  has-text-white m-0">Click to Add A Reading</span>
+							</div>
+						</a>
+					</div> 
+                {{/if}}			
+                
+                <footer class="card-footer has-background-grey mt-4">
+                    <a href="/station/{{_id}}" class="card-footer-item has-text-white is-size-6 py-0">
+                         <span class="icon pr-4">
+                          <i class="fa-solid has-text-white fa-edit fa-lg"></i>
+                        </span>
+                        <span class="m-1">
+                             View/Add Readings
+                        </span>
+                    </a>
+                    <a data-open-modal=""
+                       class="card-footer-item js-modal-trigger has-text-white is-size-6 p-0"
+                       data-target="modal-delete-station" data-id="delete-id" data-name="{{name}}"
+                       data-todelete="Station"
+                       data-link="/dashboard/deletestation/{{_id}}" aria-label="more options">
+                        <div class="container is-fullwidth has-text-centered">
+                           <span class="icon pr-3">
+                          <i class="fa-solid has-text-white fa-trash fa-lg"></i>
+                        </span>
+                            <span class="m-1">
+                            Delete the Station
+                        </span>
+                        </div>
+                    </a>
+                </footer>
+            </div>
+        </div>
+        <!-- Station -->
+        {{/each}}

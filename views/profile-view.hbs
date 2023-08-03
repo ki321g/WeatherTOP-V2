@@ -31,9 +31,6 @@
             </div>
           </div>
           <div class="column">
-            <!-- Login Notification -->
-           
-            <!-- Login Notification End -->
             <form name="frmRegister" class="p-2" action="/profile/update/{{user._id}}" method="POST" onsubmit="return validateRegisterForm()">
               <div class="field is-horizontal field-body">
                 <div class="field">
@@ -85,73 +82,7 @@
     <!-- SignUP End -->
   </div>
 </section>
-<!-- Modal Start -->
-<dialog id="modal-delete-member" class="modal p-1">
-  <div class="modal-card">
-    <header class="modal-card-head has-background-info py-0">
-      <p class="modal-card-title has-text-weight-semi-bold is-uppercase has-text-white is-size-5 py-4">Delete
-        Account</p>
-      <button class="delete is-size-4" aria-label="close"></button>
-    </header>
-    <section class="modal-card-body p-4">
-      <!-- Content ... -->
-      <div id="delete-item" class="is-size-4 has-text-weight-semi-bold has-text-centered pb-0"></div>
-    </section>
-    <footer class="modal-card-foot has-background-grey py-0">
-      <a id="delete-reading" class="card-footer-item delete-station has-text-white is-size-6 py-2">Delete Account</a>
-      <a class="card-footer-item cancel-delete has-text-white is-size-6 py-2">Cancel</a>
-    </footer>
-  </div>
-</dialog>
-<!-- Modal End -->
+{{> delete-user-modal}}
 <!-- Content End -->
 <!-- Profile End -->
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Functions to open and close a modal
-    function openModal($el) {
-      $el.classList.add('is-active');
-    }
-
-    function closeModal($el) {
-      $el.classList.remove('is-active');
-    }
-
-    function closeAllModals() {
-      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
-        closeModal($modal);
-      });
-    }
-    // Add a click event on buttons to open a specific modal
-    (document.querySelectorAll('.js-modal-trigger-delete-account') || []).forEach(($trigger) => {
-      const modal = $trigger.dataset.target;
-      const $target = document.getElementById(modal);
-      const link = $trigger.dataset.link;
-
-      $trigger.addEventListener('click', () => {
-        document.getElementById("delete-reading").href = link;
-        document.getElementById("delete-item").innerHTML = "Are your sure you want to delete our Account?";
-        openModal($target);
-      });
-    });
-
-    // Add a click event on various child elements to close the parent modal
-    (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .cancel-delete') || []).forEach(($close) => {
-      const $target = $close.closest('.modal');
-
-      $close.addEventListener('click', () => {
-        closeModal($target);
-      });
-    });
-
-    // Add a keyboard event to close all modals
-    document.addEventListener('keydown', (event) => {
-      const e = event || window.event;
-
-      if (e.keyCode === 27) { // Escape key
-        closeAllModals();
-      }
-    });
-  });
-</script>

@@ -1,0 +1,154 @@
+<!-- Modal Start -->
+<dialog id="modal-edit-reading" class="modal p-1" style="    z-index: 9999;">
+    <div class="modal-card">
+        <header class="modal-card-head has-background-info py-0">
+            <p class="modal-card-title has-text-weight-semi-bold is-uppercase has-text-white is-size-5 py-4">Edit Reading</p>
+            <button class="delete is-size-4" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body px-4 py-2">
+            <!-- Content ... -->
+                    <form name="editReading" id="editReading" action="" onsubmit="return"
+                          method="POST">
+                                <div class="field">
+                                    <label class="label mb-0">Code</label>
+                                    <div class="control">
+                                        <div id="selectCode" class="select is-fullwidth">
+                                          {{> selectcode id="code"}}
+                                        </div>
+                                        <div id="errCode" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label mb-0">Temperature</label>
+                                    <div class="control">
+                                        <input id="Temperature" type="number" step="any" class="input" placeholder="000.00&#176C" name="temperature" value="">
+                                        <div id="errTemperature" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label mb-0">Wind Speed</label>
+                                    <div class="control">
+                                        <input id="WindSpeed" type="number" step="any" class="input" placeholder="000.00 km/hr" name="windSpeed" min="0" max="117" value="">
+                                        <div id="errWindSpeed" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label mb-0">Wind Direction</label>
+                                    <div class="control">
+                                        <input id="WindDirection" type="number" step="any" class="input" placeholder="000.00&#176" name="windDirection" min="0" max="360" value="">
+                                        <div id="errWindDirection" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label mb-0">Pressure</label>
+                                    <div class="control">
+                                        <input id="Pressure" type="number" class="input" placeholder="0000 hPa" name="pressure" min="0" value="">
+                                        <div id="errPressure" class="showError has-background-danger has-text-centered has-text-white mt-1"></div>
+                                    </div>
+                                </div>
+                        <div class="column is-12 p-0">
+                            <div class="field">
+                                <div class="control">
+                                    <button class="button is-fullwidth is-info py-0">Edit Reading</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+        </section>
+</dialog>
+<!-- Modal End -->
+<!-- Modal Start -->
+<dialog id="modal-delete-reading" class="modal p-1" style="z-index: 9999;">
+    <div class="modal-card">
+        <header class="modal-card-head has-background-info py-0">
+            <p class="modal-card-title has-text-weight-semi-bold is-uppercase has-text-white is-size-5 py-4">Delete
+                Reading</p>
+            <button class="delete is-size-4" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body p-4">
+            <!-- Content ... -->
+            <div id="delete-item" class="is-size-4 has-text-weight-semi-bold has-text-centered pb-0"></div>
+        </section>
+        <footer class="modal-card-foot has-background-grey py-0">
+            <a id="delete-reading" class="card-footer-item delete-station has-text-white is-size-6 py-2">Delete the Reading</a>
+            <a class="card-footer-item cancel-delete has-text-white is-size-6 py-2">Cancel</a>
+        </footer>
+    </div>
+</dialog>
+<!-- Modal End -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Functions to open and close a modal
+        function openModal($el) {
+            $el.classList.add('is-active');
+        }
+
+        function closeModal($el) {
+            $el.classList.remove('is-active');
+        }
+
+        function closeAllModals() {
+            (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                closeModal($modal);
+            });
+        }
+        // Add a click event on buttons to open a specific modal
+        (document.querySelectorAll('.js-modal-trigger-delete') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+            const link = $trigger.dataset.link;
+
+
+            $trigger.addEventListener('click', () => {
+                document.getElementById("delete-reading").href = link;
+                document.getElementById("delete-item").innerHTML = "Are your sure you want to delete the Reading?";
+                openModal($target);
+            });
+        });
+
+
+        // Add a click event on buttons to open a specific modal
+        (document.querySelectorAll('.js-modal-trigger-edit') || []).forEach(($trigger) => {
+            const modal = $trigger.dataset.target;
+            const $target = document.getElementById(modal);
+            const code = $trigger.dataset.code;
+            const temperature = $trigger.dataset.temperature;
+            const windspeed = $trigger.dataset.windspeed;
+            const winddirection = $trigger.dataset.winddirection;
+            const pressure = $trigger.dataset.pressure;
+            const link = $trigger.dataset.link;
+
+
+            $trigger.addEventListener('click', () => {
+                document.getElementById('code').value=code;
+                document.getElementById('Temperature').value=temperature;
+                document.getElementById('WindSpeed').value=windspeed;
+                document.getElementById('WindDirection').value=winddirection;
+                document.getElementById('Pressure').value=pressure;
+                document.forms["editReading"].action = link;
+
+                openModal($target);
+            });
+        });
+
+        // Add a click event on various child elements to close the parent modal
+        (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .cancel-delete') || []).forEach(($close) => {
+            const $target = $close.closest('.modal');
+
+            $close.addEventListener('click', () => {
+                closeModal($target);
+            });
+        });
+
+        // Add a keyboard event to close all modals
+        document.addEventListener('keydown', (event) => {
+            const e = event || window.event;
+
+            if (e.keyCode === 27) { // Escape key
+                closeAllModals();
+            }
+        });
+    });
+
+</script>
