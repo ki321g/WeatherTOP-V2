@@ -56,9 +56,15 @@ let avgLat = avgLng = 0;
 {{#each stations}}
   marker = L.marker([{{latitude}}, {{longitude}}], {title: "{{name}}"});
   marker.bindPopup("<h1><strong>{{name}}</strong></h1>" 
+            + "<br>"
             + "LatLng(" + {{latitude}} + "," 
             + {{longitude}} + ")"
-            + "<br>"
+            + "<br>" 
+            + "Temp: " + {{latestTemp}} 
+            + " &#176C, Wind: " + {{latestWindSpeedBFT}} 
+            + " bft, Pressure: "
+            +  {{latestPressure}} + " hPa"
+            + "<br><br>"
             + "<a href='/station/{{_id}}'>View Station Readings</a>"
             );
   marker.addTo(map);

@@ -40,6 +40,16 @@
       "pressure": 999,
       "_id": "bd8975cf-55b9-486d-b32f-9b04bde5c78d",
       "stationid": "b1ec92d5-518c-4293-a528-228458a61542"
+    },
+    {
+      "timeStamp": "03/08/2023, 14:32:58",
+      "code": 803,
+      "temperature": 17.97,
+      "windSpeed": 6.71,
+      "windDirection": 315,
+      "pressure": 1012,
+      "_id": "02ac4d30-bbeb-447f-8ad3-a704b04401f3",
+      "stationid": "73f1be05-c5a4-4a9c-8671-17e1452bba75"
     }
   ]
 }
