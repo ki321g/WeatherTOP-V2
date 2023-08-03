@@ -1,12 +1,11 @@
-import axios from "axios";
-import { stationStore } from "../models/station-store.js";
-import { readingStore } from "../models/reading-store.js";
-
+/**
+ * This class is for custom handlebar helpers
+ *
+ * @author Kieron Garvey
+ * @version 0.1
+ */
 export const handlebarsHelpers = {
-  /*
-   * Handlebars Helpers
-   */
-  // equal to
+   // equal to
   eq: function (a, b) {
     return a === b;
   },

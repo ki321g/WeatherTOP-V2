@@ -1,14 +1,9 @@
-/*
-const weatherCodeMap = new Map();
-weatherCodeMap.set(100, { description: "Clear"});
-weatherCodeMap.set(200, { description: "Partial Clouds"});
-weatherCodeMap.set(300, { description: "Cloudy"});
-weatherCodeMap.set(400, { description: "Light Showers"});
-weatherCodeMap.set(500, { description: "Heavy Showers"});
-weatherCodeMap.set(600, { description: "Rain"});
-weatherCodeMap.set(700, { description: "Snow"});
-weatherCodeMap.set(800, { description: "Thunder"});
-*/
+/**
+ * This class handles conversions
+ *
+ * @author Kieron Garvey
+ * @version 0.1
+ */
 const weatherCodeMap = new Map();
 weatherCodeMap.set(200, {
   description: "Thunder Light Rain",
@@ -391,14 +386,32 @@ export const conversions = {
     );
   },
 
+  /**
+   * windSpeedLabel() -  gets wind speed label
+   *
+   * @param windSpeed passed in windSpeed
+   * @return wind speed label
+   */
   windSpeedLabel(windSpeed) {
     return beaufortLabel.get(windSpeed).description;
   },
 
+  /**
+   * codeLabel() -  gets code label
+   *
+   * @param code passed in code
+   * @return codeLabel
+   */
   codeLabel(code) {
     return weatherCodeMap.get(code).description;
   },
-
+  
+  /**
+   * codeIcon() -  gets wind speed label
+   *
+   * @param code passed in code
+   * @return code icon URL
+   */
   codeIcon(code) {
     return weatherCodeMap.get(code).icon;
   },

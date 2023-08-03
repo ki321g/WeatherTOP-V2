@@ -1,22 +1,38 @@
 import { read } from "fs-extra";
 import { readingStore } from "../models/reading-store.js";
 import { conversions } from "../utils/conversions.js";
-
+/**
+ * This class handles the latestReading analytics
+ *
+ * @author Kieron Garvey
+ * @version 0.1
+ */
 export const latestReadings = async (id) => {
   let stationReadings = await readingStore.getReadingsByStationId(id);
   let latestReading = null;
   const reading = {
     latestCode: null,
     latestCodeLabel: null,
+    latestCodeIcon: null,
     latestTemp: null,
     latestTempFahrenheit: null,
+    minTemp: null,
+    maxTemp: null,
     latestWindSpeed: null,
     latestWindSpeedBFT: null,
     windSpeedLabel: null,
+    minWindSpeed: null,
+    maxWindSpeed: null,
     windDirection: null,
     windDirectionLabel: null,
     windDirectionIcon: null,
+    WindChill: null,
     latestPressure: null,
+    minPressure: null,
+    maxPressure: null,
+    trendTemperature: null,
+    trendWindSpeed: null,
+    trendPressure: null,    
     readingsRecorded: 0,
   };
   if (stationReadings.length > 0) {
@@ -26,30 +42,24 @@ export const latestReadings = async (id) => {
     reading.latestCodeIcon = conversions.codeIcon(reading.latestCode);
     reading.latestTemp = stationReadings[latestReading].temperature;
     reading.latestTempFahrenheit = conversions.convertToFahrenheit(reading.latestTemp);
-    reading.minTemp = minMaxReadings(stationReadings, "temperature", "min");
-    reading.maxTemp = minMaxReadings(stationReadings, "temperature", "max");
+    reading.minTemp = minMaxReadings(stationReadings.map((stationReadings) => stationReadings.temperature), "min");
+    reading.maxTemp = minMaxReadings(stationReadings.map((stationReadings) => stationReadings.temperature), "max");
     reading.latestWindSpeed = stationReadings[latestReading].windSpeed;
     reading.latestWindSpeedBFT = conversions.convertToBeaufort(reading.latestWindSpeed);
     reading.windSpeedLabel = conversions.windSpeedLabel(reading.latestWindSpeedBFT);
-    reading.minWindSpeed = minMaxReadings(stationReadings, "windSpeed", "min");
-    reading.maxWindSpeed = minMaxReadings(stationReadings, "windSpeed", "max");
+    reading.minWindSpeed = minMaxReadings(stationReadings.map((stationReadings) => stationReadings.windSpeed), "min");
+    reading.maxWindSpeed = minMaxReadings(stationReadings.map((stationReadings) => stationReadings.windSpeed), "max");
     reading.windDirection = stationReadings[latestReading].windDirection;
-    reading.windDirectionLabel = conversions.convertDegreeToDirection(
-      stationReadings[latestReading].windDirection,
-      "text"
-    );
-    reading.windDirectionIcon = conversions.convertDegreeToDirection(
-      stationReadings[latestReading].windDirection,
-      "icon"
-    );
+    reading.windDirectionLabel = conversions.convertDegreeToDirection(stationReadings[latestReading].windDirection,"text");
+    reading.windDirectionIcon = conversions.convertDegreeToDirection(stationReadings[latestReading].windDirection,
+      "icon");
     reading.WindChill = conversions.calculateWindChill(reading.latestTemp, reading.latestWindSpeed);
     reading.latestPressure = stationReadings[latestReading].pressure;
-    reading.minPressure = minMaxReadings(stationReadings, "pressure", "min");
-    reading.maxPressure = minMaxReadings(stationReadings, "pressure", "max");
+    reading.minPressure = minMaxReadings(stationReadings.map((stationReadings) => stationReadings.pressure), "min");
+    reading.maxPressure = minMaxReadings(stationReadings.map((stationReadings) => stationReadings.pressure), "max");
     reading.trendTemperature = readingTrends(stationReadings.map((stationReadings) => stationReadings.temperature));
     reading.trendWindSpeed = readingTrends(stationReadings.map((stationReadings) => stationReadings.windSpeed));
-    reading.trendPressure = readingTrends(stationReadings.map((stationReadings) => stationReadings.pressure));
-    
+    reading.trendPressure = readingTrends(stationReadings.map((stationReadings) => stationReadings.pressure));    
     reading.readingsRecorded = stationReadings.length;
   }
   return {
@@ -58,34 +68,23 @@ export const latestReadings = async (id) => {
   };
 };
 
-function minMaxReadings(stationReadings, readingType, minMax) {
-  if (readingType === "temperature") {
-    let minTemp = Math.min(...stationReadings.map((stationReadings) => stationReadings.temperature));
-    let maxTemp = Math.max(...stationReadings.map((stationReadings) => stationReadings.temperature));
-
+  /**
+   * minMaxReadings() - This method finds the min or max of a reading type
+   *
+   * The following parameters are passed into the method in the request body:
+   * @param stationReadings array of all readings for specific reading type for the station 
+   * @param minMax min or max to return
+   *
+   */
+  function minMaxReadings(stationReadings, minMax) {
+    let readingMin = Math.min(...stationReadings);
+    let readingMax = Math.max(...stationReadings);
     if (minMax === "min") {
-      return minTemp;
+      return readingMin;
     } else if (minMax === "max") {
-      return maxTemp;
+      return readingMax;
     }
-  } else if (readingType === "windSpeed") {
-    let minWindSpeed = Math.min(...stationReadings.map((stationReadings) => stationReadings.windSpeed));
-    let maxWindSpeed = Math.max(...stationReadings.map((stationReadings) => stationReadings.windSpeed));
-    if (minMax === "min") {
-      return minWindSpeed;
-    } else if (minMax === "max") {
-      return maxWindSpeed;
-    }
-  } else if (readingType === "pressure") {
-    let minPressure = Math.min(...stationReadings.map((stationReadings) => stationReadings.pressure));
-    let maxPressure = Math.max(...stationReadings.map((stationReadings) => stationReadings.pressure));
-    if (minMax === "min") {
-      return minPressure;
-    } else if (minMax === "max") {
-      return maxPressure;
-    }
-  }
-}
+  };
 
 /**
  * temperatureTrend() - Returns the current Temperature trend if any

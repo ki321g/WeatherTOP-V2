@@ -1,7 +1,7 @@
 /**
  * This class renders the about page
  *
- * @author Kieron GArvey
+ * @author Kieron Garvey
  * @version 0.1
  */
 export const aboutController = {

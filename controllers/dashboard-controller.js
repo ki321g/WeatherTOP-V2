@@ -8,7 +8,7 @@ import { openWeatherMap } from "../utils/openweathermap-utils.js";
 /**
  * This class handles things related to the Dashboard
  *
- * @author Kieron GArvey
+ * @author Kieron Garvey
  * @version 0.1
  */
 export const dashboardController = {

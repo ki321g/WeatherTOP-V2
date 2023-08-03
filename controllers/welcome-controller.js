@@ -1,7 +1,7 @@
 /**
  * This class renders the Welcome page
  *
- * @author Kieron GArvey
+ * @author Kieron Garvey
  * @version 0.1
  */
 export const welcomeController = {

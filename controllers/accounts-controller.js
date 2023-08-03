@@ -4,7 +4,7 @@ import { stationStore } from "../models/station-store.js";
 /**
  * This class handles user Accounts
  *
- * @author Kieron GArvey
+ * @author Kieron Garvey
  * @version 0.1
  */
 export const accountsController = {

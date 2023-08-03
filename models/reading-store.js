@@ -3,6 +3,12 @@ import { initStore } from "../utils/store-utils.js";
 
 const db = initStore("readings");
 
+/**
+ * This class handles things related to the Reading Store
+ *
+ * @author Kieron Garvey
+ * @version 0.1
+ */
 export const readingStore = {
   /*
    * Get All Readings from the store
@@ -58,6 +64,9 @@ export const readingStore = {
     await db.write();
   },
 
+  /*
+   * Delete Station Readings in the store
+   */
   async deleteStationsReadings(id) {
     await db.read();
     db.data.readings = db.data.readings.filter((reading) => reading.stationid !== id);

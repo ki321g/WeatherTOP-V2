@@ -5,6 +5,12 @@ import { openWeatherMap } from "../utils/openweathermap-utils.js";
 
 const db = initStore("stations");
 
+/**
+ * This class handles things related to the Station Store
+ *
+ * @author Kieron Garvey
+ * @version 0.1
+ */
 export const stationStore = {
   /*
    * Get All Stations from the store
