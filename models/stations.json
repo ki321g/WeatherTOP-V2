@@ -14,20 +14,6 @@
       "longitude": "-6.994615618652345",
       "userid": "c4b02b8c-a34d-4ee8-af63-fdf91ba08ab5",
       "_id": "b1ec92d5-518c-4293-a528-228458a61542"
-    },
-    {
-      "name": "TRAMORE",
-      "latitude": "52.167789178643254",
-      "longitude": "-7.165026515722276",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "0c934014-12ef-4182-b5cb-9a31569f80b7"
-    },
-    {
-      "name": "GILLABBEY B",
-      "latitude": "51.890053935216926",
-      "longitude": "-8.492431640625002",
-      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "33d7275f-7ac3-458e-80dd-d59d2484a5b1"
     }
   ]
 }
