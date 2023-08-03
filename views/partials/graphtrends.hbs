@@ -7,17 +7,17 @@
                                         <tbody>
                                         <tr>
                                             <td class="has-text-centered py-3">
-                                            {{> chart id="temp-chart" name="Temperature" values=dailyReadings.temperature labels=dailyReadings.labels}}
+                                            {{> chart id="temp-chart" name="Temperature" yMarker=10 values=dailyReadings.temperature labels=dailyReadings.labels}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="has-text-centered py-3">
-                                            {{> chart id="wind-speed-chart" name="Wind Speed" values=dailyReadings.windSpeed labels=dailyReadings.labels}}
+                                            {{> chart id="wind-speed-chart" name="Wind Speed" yMarker=10 values=dailyReadings.windSpeed labels=dailyReadings.labels}}
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="has-text-centered py-3">
-                                            {{> chart id="pressure-chart" name="Pressure" values=dailyReadings.pressure labels=dailyReadings.labels}}  
+                                            {{> chart id="pressure-chart" name="Pressure" yMarker=900 values=dailyReadings.pressure labels=dailyReadings.labels}}  
                                             </td>
                                         </tr>
                                         </tbody>

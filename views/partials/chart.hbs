@@ -16,7 +16,8 @@
             {{/each}}
           ]
         }
-      ]
+      ],
+       yMarkers: [{ label: "", value: {{yMarker}},type: 'solid' }]
     }
 
     const chart = new frappe.Chart("#{{id}}", {

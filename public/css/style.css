@@ -201,3 +201,7 @@ label.is-checkbox .icon:last-child:not(:first-child) {
 label.is-checkbox .icon:first-child:last-child {
   margin-left: calc(-0.575em - 1px);
 }
+
+.frappe-chart .y-markers {
+  display: none;
+}
