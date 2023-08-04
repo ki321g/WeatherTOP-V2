@@ -5,7 +5,7 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon server.js -e js,hbs,mjs,cjs -ignore *.json"
+    "start": "nodemon server.js -e js,hbs,mjs,cjs -ignore models/*.json"
   },
   "dependencies": {
     "axios": "^1.4.0",

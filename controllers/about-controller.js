@@ -14,7 +14,7 @@ export const aboutController = {
       title: "About WeatherTOP",
       UserLoggedIn: UserLoggedIn
     };
-    console.log("\nRendering: About-View");
+    console.log("Rendering: About-View");
     response.render("about-view", viewData);
   },
 };

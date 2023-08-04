@@ -78,8 +78,7 @@ export const readingStore = {
    */
   async updateReading(readingId, updatedReading) {    
     await db.read();
-    console.log(`\nEdit Reading: ${readingId}`); 
-
+    
     const index = db.data.readings.findIndex((reading) => reading._id === readingId);
  
     db.data.readings[index].code = updatedReading.code;

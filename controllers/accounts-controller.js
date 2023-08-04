@@ -29,7 +29,7 @@ export const accountsController = {
       user: loggedInUser,
       UserLoggedIn: UserLoggedIn
     };
-    console.log("\nRendering: Profile-View");
+    console.log("Rendering: Profile-View");
     response.render("profile-view", viewData);
   },
 
@@ -43,7 +43,7 @@ export const accountsController = {
       title: "Login to the Service",
       UserLoggedIn: UserLoggedIn
     };
-    console.log("\nRendering: Login-View");
+    console.log("Rendering: Login-View");
     response.render("login-view", viewData);
   },
 
@@ -66,7 +66,7 @@ export const accountsController = {
       title: "Login to the Service",
       UserLoggedIn: UserLoggedIn
     };
-    console.log("\nRendering: Signup-View");
+    console.log("Rendering: Signup-View");
     response.render("signup-view", viewData);
   },
 

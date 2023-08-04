@@ -41,7 +41,7 @@ export const stationController = {
 
     Object.assign(viewData, stationReadings.reading);
 
-    console.log("\nRendering: Station-View");
+    console.log("Rendering: Station-View");
     //let viewDataString = JSON.stringify(viewData); // Debug Remove Later
     //let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
     //console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
@@ -111,7 +111,7 @@ export const stationController = {
   async deleteReading(request, response) {
     const stationId = request.params.id;
     const readingId = request.params.readingid;
-    console.log(`\nDeleting Reading: ${readingId}`);
+    console.log(`Deleting Reading: ${readingId}`);
     await readingStore.deleteReading(readingId);
     response.redirect("/station/" + stationId);
   },
@@ -132,7 +132,7 @@ export const stationController = {
   async editReading(request, response) {
     const stationId = request.params.id;
     const readingId = request.params.readingid;
-    console.log(`\nEdit Reading: ${readingId} on Station ${stationId}`);
+    console.log(`Edit Reading: ${readingId} on Station ${stationId}`);
 
     const updateReading = {
       code: Number(request.body.code),
@@ -161,6 +161,20 @@ export const stationController = {
       station.latitude,
       station.longitude,
       process.env.OPENWEATHERMAP_API_KEY
+    );
+
+    console.log(
+      `addReading to Station: ${station.name}`,
+      `\n`,
+      `code:${newReading.code}`,
+      `\n`,
+      `temperature:${newReading.temperature}`,
+      `\n`,
+      `windSpeed:${newReading.windSpeed}`,
+      `\n`,
+      `windDirection:${newReading.windDirection}`,
+      `\n`,
+      `pressure:${newReading.pressure}`
     );
 
     await readingStore.addReading(stationId, newReading);

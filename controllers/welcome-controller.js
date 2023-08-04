@@ -15,7 +15,7 @@ export const welcomeController = {
       title: "Welcome to WeatherTOP",
       UserLoggedIn: UserLoggedIn,
     };
-    console.log("\nRendering: Welcome-View");
+    console.log("Rendering: Welcome-View");
     response.render("welcome-view", viewData);
   },
 };

@@ -16,11 +16,18 @@
       "_id": "b1ec92d5-518c-4293-a528-228458a61542"
     },
     {
-      "name": "GRACEDIEU",
-      "latitude": "52.261433597272294",
-      "longitude": "-7.142486572265626",
+      "name": "TRAMORE",
+      "latitude": "52.17666873679948",
+      "longitude": "-7.163343429565431",
       "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
-      "_id": "73f1be05-c5a4-4a9c-8671-17e1452bba75"
+      "_id": "8523a5ff-a656-4758-8190-2bc3dfda03ed"
+    },
+    {
+      "name": "KNOCKRAHA",
+      "latitude": "51.998410382390325",
+      "longitude": "-8.338623046875002",
+      "userid": "ec8eda83-ea88-4071-abcd-4caaca3c5337",
+      "_id": "b7cb628b-dcec-4ed8-96aa-b312376e4763"
     }
   ]
 }

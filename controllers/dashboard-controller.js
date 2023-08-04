@@ -33,7 +33,7 @@ export const dashboardController = {
       const readingObject = await latestReadings(station._id);
       Object.assign(station, readingObject.reading);
     }
-    console.log("\nRendering: Dashboard-View");
+    console.log("Rendering: Dashboard-View");
     //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
     //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
     //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
@@ -69,8 +69,6 @@ export const dashboardController = {
     console.log(`adding station ${newStation.name}`);
 
     const station = await stationStore.addStation(newStation);
-    console.log(`Testing past addStation ${station._id}`);
-    console.log(`GenerateReading: ${request.body.generateReading}`);
 
     if (generateReading.includes("on")) {
       const newReading = await stationController.generateInitalReading(station._id);
