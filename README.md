@@ -31,13 +31,6 @@ WeatherTop Inc. produce a modular weather station called the WeatherTop 1000. Th
 Link: [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch.me/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- VIDEO -->
-## Video Walk Through
-<a href="https://youtu.be/kmqXVC0wVdA" target="_blank">
- <img src="readme/images/youtube.svg" alt="Watch the video"/>
-</a>
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 ### Installation
 
 To get a copy of the project running on your system, navigate to the project directory in a command prompt/shell and run the following:
@@ -62,7 +55,7 @@ This will load the application and start a local server on port 4000.
 
 Your Name - Kieron Garvey
 
-Project Link: [https://github.com/ki321g/WeatherTOP-V2/](https://github.com/ki321g/WeatherTOP-V2)]
+Project Link: [https://github.com/ki321g/WeatherTOP-V2/](https://github.com/ki321g/WeatherTOP-V2)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
