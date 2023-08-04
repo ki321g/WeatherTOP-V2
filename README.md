@@ -12,11 +12,7 @@
   <ol>
     <li><a href="#about-the-project">About The Project</a></li>
     <li><a href="#live-demo">Live Demo</a></li>
-    <li><a href="#video-walk-through">Video Walk Through</a></li>
-    <li><a href="#user-accounts">User Accounts</a></li>
-    <li><a href="#user-stations">User Stations</a></li>
-    <li><a href="#user-readings">User Readings</a></li>
-    <li><a href="#extras">Extra's</a></li>
+    <li><a href="#video-walk-through">Video Walk Through</a></li>   
     <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -44,21 +40,20 @@ Link: [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch.me/)
 
 ### Installation
 
-1. Install [Play-1.6.0](https://github.com/playframework/play1/releases/download/1.6.0/play-1.6.0.zip) on your PC 
-2. Clone the repo
-   ```
-   git clone https://github.com/ki321g/WeatherTOP
-   ```
-3. Open command prompt navigate to your project directory
-4. Start Play application in the command prompt
- ```
-   play run
-   ```
-6. Open Localhost URL
- ```
-   http://localhost:9000/
-   ``` 
+To get a copy of the project running on your system, navigate to the project directory in a command prompt/shell and run the following:
+  ```
+    npm install
+  ```
+This will install all dependencies in package-lock.json
 
+After dependency installation has completed run
+  ```
+  npm run start
+  ```
+This will load the application and start a local server on port 4000.
+  ```
+  http://localhost:9000/
+  ``` 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
@@ -67,7 +62,7 @@ Link: [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch.me/)
 
 Your Name - Kieron Garvey
 
-Project Link: [https://github.com/ki321g/WeatherTOP/](https://github.com/ki321g/WeatherTOP-V2)]
+Project Link: [https://github.com/ki321g/WeatherTOP-V2/](https://github.com/ki321g/WeatherTOP-V2)]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
