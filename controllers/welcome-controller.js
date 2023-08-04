@@ -10,7 +10,7 @@ export const welcomeController = {
    */
   index(request, response) {
     let UserLoggedIn = Boolean(request.cookies.LoggedInUser);
-    console.log("UserLoggedIn: " + UserLoggedIn);
+
     const viewData = {
       title: "Welcome to WeatherTOP",
       UserLoggedIn: UserLoggedIn,
