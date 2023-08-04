@@ -27,7 +27,7 @@
 WeatherTop Inc. produce a modular weather station called the WeatherTop 1000. This lowcost device takes a set of meteorological readings and displays these on a simple LCD display. WeatherTop Inc. are seeking a Web companion application for the device. This document outlines my submission for this Assignment.
 | Developed With| Templated With |  Styled With | 
 | :----:        |    :----:   |  :----:   |
-| <img src="readme/images/Expressjs.svg" style="height: 200px;">       | <img src="readme/images/handlebars_logo.png">       |  <img src="readme/images/bulma-logo.png">       |
+| <img src="readme/images/Expressjs.svg">       | <img src="readme/images/handlebars_logo.png">       |  <img src="readme/images/bulma-logo.png">       |
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
