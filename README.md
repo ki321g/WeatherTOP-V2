@@ -62,7 +62,7 @@ This will load the application and start a local server on port 4000.
 
 Your Name - Kieron Garvey
 
-Project Link: [https://github.com/ki321g/WeatherTOP-V2/](https://github.com/ki321g/WeatherTOP-V2)]
+Project Link: [https://github.com/ki321g/WeatherTOP-V2/](https://github.com/ki321g/WeatherTOP-V2)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
