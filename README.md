@@ -3,7 +3,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <h1 align="center">Progamming Fundimentals & Web-Dev Assignment</h1>
+  <h1 align="center">Web Development II</h1>
   <img src="readme/images/weathertop.png" alt="Logo">  
 </div>
 <!-- TABLE OF CONTENTS -->
@@ -32,7 +32,7 @@ WeatherTop Inc. produce a modular weather station called the WeatherTop 1000. Th
 
 <!-- LIVE DEMO -->
 ## Live Demo
-Link: [https://weathertop.cleverapps.io/](https://weathertop.cleverapps.io/)
+Link: [https://weathertop.cleverapps.io/](https://weathertopv2kg.glitch.me/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- VIDEO -->
