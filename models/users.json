@@ -21,13 +21,6 @@
       "email": "k@g.com",
       "password": "1234567",
       "_id": "f77a04f2-fcfb-4444-bbea-3102d79ff5a9"
-    },
-    {
-      "firstname": "Test",
-      "lastname": "Tester",
-      "email": "t@t.com",
-      "password": "1234567",
-      "_id": "ec8eda83-ea88-4071-abcd-4caaca3c5337"
     }
   ]
 }
