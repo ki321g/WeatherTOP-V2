@@ -32,7 +32,7 @@ WeatherTop Inc. produce a modular weather station called the WeatherTop 1000. Th
 
 <!-- LIVE DEMO -->
 ## Live Demo
-Link: [https://weathertop.cleverapps.io/](https://weathertopv2kg.glitch.me/)
+Link: [https://weathertopv2kg.glitch.me/](https://weathertopv2kg.glitch.me/)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- VIDEO -->
@@ -41,65 +41,6 @@ Link: [https://weathertop.cleverapps.io/](https://weathertopv2kg.glitch.me/)
  <img src="readme/images/youtube.svg" alt="Watch the video"/>
 </a>
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FEATURES -->
-## User Accounts
-<img align="left" width="65%" src="readme/images/user-accounts.gif" style="max-width: 95%;vertical-align:middle;margin:50px 0px"> 
-
-### Account Features
-- [x] Sign up and Login (both with Form Validation)
-- [x] Loading from the data.yml
-    - [x] Users 
-    - [x] User Associated Stations
-    - [x] User Associated Readings   
-- [x] Profile
-    - [x] Edit/Update Account
-    - [x] Delete Account
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## User Stations
-<img align="left" width="65%" src="readme/images/user-stations.gif" style="max-width: 95%;vertical-align:middle;margin:50px 0px"> 
-
-### Station Features
-- [x] Create Station (Name , Longitude, Latitude)
-- [x] Delete Station
-- [x] Station Displays
-    - [x] Latest weather with SVG moving icons/images
-    - [x] Temperature in Celsius & Fahrenheit
-    - [x] Wind in km.hr & Bft (Beaufort)    
-    - [x] Pressure in hPa
- - [x] Weather Min/Max Readings
- - [x] Weather Trends
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## User Readings
-<img align="left" width="65%" src="readme/images/user-readings.gif" style="max-width: 95%;vertical-align:middle;margin:50px 0px"> 
-
-### Reading Features
-- [x] Create (Date/Time, Code, Temperature, Wind Speed, Wind Direction, Pressure)
-- [x] Edit/Delete Readings
-- [x] Station Displays
-    - [x] Latest weather
-    - [x] Temperature in Celsius & Fahrenheit
-    - [x] Wind in km.hr & Bft (Beaufort)    
-    - [x] Pressure in hPa
-<br><br>
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-## Extras
-<img align="left" width="65%" src="readme/images/extras.gif" style="max-width: 95%;vertical-align:middle;margin:50px 0px"> 
-
-### Extra Features
-- [x] Delete Confirmation on Member, Stations & Readings
-- [x] Edit Readings
-- [x] Google Graphs Integrations
-
-<br><br><br><br><br><br>
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ### Installation
 
