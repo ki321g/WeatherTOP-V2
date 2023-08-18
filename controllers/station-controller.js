@@ -20,33 +20,54 @@ export const stationController = {
    * @param id Station ID
    */
   async index(request, response) {
+    let checkMemberStations = false;
     let loggedInUser = await accountsController.getLoggedInUser(request);
 
     if (loggedInUser === undefined) {
+      //If no logged in user, redirect to login page
+      console.log("Station_id: " + request.params.id);
       response.redirect("/login");
       return;
+    } else {
+      //If logged in user, check if station belongs to user
+      const stationsToCheck = await stationStore.getStationByUserId(loggedInUser._id);
+      //Check if station belongs to user
+      for (const stationCheck of stationsToCheck) {
+        console.log("stationCheck " + stationCheck._id);
+        if (stationCheck._id === request.params.id) {
+          checkMemberStations = true;
+        }
+      }
+      //If station does not belong to user, redirect to dashboard
+      if (checkMemberStations === false) {
+        console.log("Station_id: " + request.params.id);
+        response.redirect("/dashboard");
+        return;
+      } else {
+        //If station belongs to user, render station view
+        const station = await stationStore.getStationById(request.params.id);
+        let stationReadings = await latestReadings(request.params.id);
+        const dailyReadings = await openWeatherMap.getDailyReadingsData(
+          station.latitude,
+          station.longitude,
+          process.env.OPENWEATHERMAP_API_KEY
+        );
+
+        const viewData = {
+          station: station,
+          dailyReadings: dailyReadings,
+        };
+        
+        Object.assign(viewData, stationReadings.reading);
+
+        console.log("Rendering: Station-View");
+        //let viewDataString = JSON.stringify(viewData); // Debug Remove Later
+        //let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
+        //console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
+
+        response.render("station-view", viewData);
+      }
     }
-    const station = await stationStore.getStationById(request.params.id);
-    let stationReadings = await latestReadings(request.params.id);
-    const dailyReadings = await openWeatherMap.getDailyReadingsData(
-      station.latitude,
-      station.longitude,
-      process.env.OPENWEATHERMAP_API_KEY
-    );
-
-    const viewData = {
-      station: station,
-      dailyReadings: dailyReadings,
-    };
-
-    Object.assign(viewData, stationReadings.reading);
-
-    console.log("Rendering: Station-View");
-    //let viewDataString = JSON.stringify(viewData); // Debug Remove Later
-    //let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
-    //console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
-
-    response.render("station-view", viewData);
   },
 
   /**

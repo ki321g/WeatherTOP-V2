@@ -20,25 +20,32 @@ export const dashboardController = {
    */
   async index(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
-    
+    //If no logged in user, redirect to login page
     if (loggedInUser === undefined) {
       response.redirect("/login");
       return;
-    };
-    const viewData = {
-      title: "Station Dashboard",
-      stations: await stationStore.getStationByUserId(loggedInUser._id),
-    };
-    for (const station of viewData.stations) {
-      const readingObject = await latestReadings(station._id);
-      Object.assign(station, readingObject.reading);
-    }
-    console.log("Rendering: Dashboard-View");
-    //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
-    //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
-    //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
+    } else {
+      //If logged in user, render dashboard view
+      const stations = await stationStore.getStationByUserId(loggedInUser._id);
 
-    response.render("dashboard-view", viewData);
+      //Add latest readings to each station
+      for (const station of stations) {
+        const readingObject = await latestReadings(station._id);
+        Object.assign(station, readingObject.reading);
+      };
+      
+      const viewData = {
+        title: "Station Dashboard",
+        stations: stations,
+      };
+      
+      console.log("Rendering: Dashboard-View");
+      //  let viewDataString = JSON.stringify(viewData); // Debug Remove Later
+      //  let viewDateObject = JSON.parse(viewDataString); // Debug Remove Later
+      //  console.dir(viewDateObject, { depth: null, colors: true }); // Debug Remove Later
+  
+      response.render("dashboard-view", viewData);
+    };  
   },
 
   /**
@@ -59,7 +66,7 @@ export const dashboardController = {
   async addStation(request, response) {
     let loggedInUser = await accountsController.getLoggedInUser(request);
     let generateReading = request.body.generateReading;
-
+    //Declare new station object
     const newStation = {
       name: request.body.name.toUpperCase(),
       latitude: request.body.latitude,
@@ -67,13 +74,13 @@ export const dashboardController = {
       userid: loggedInUser._id,
     };
     console.log(`adding station ${newStation.name}`);
-
+    //Add new station to store
     const station = await stationStore.addStation(newStation);
-
+    //If generateReading parameter contains "on", generate a new reading
     if (generateReading.includes("on")) {
       const newReading = await stationController.generateInitalReading(station._id);
     }
-
+    //Redirect to new station
     response.redirect("/station/" + station._id);
   },
 

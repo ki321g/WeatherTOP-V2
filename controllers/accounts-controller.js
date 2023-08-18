@@ -186,7 +186,7 @@ export const accountsController = {
       lastname: request.body.lastname,
       password: request.body.password,
     };
-
+    //update user
     await userStore.updateUser(loggedInUser._id, updateUser);
     response.redirect("/profile");
   },
@@ -199,16 +199,17 @@ export const accountsController = {
    */
   async deleteUser(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
-    
+    //create object to store user stations to delete
     const stationsToDelete = {
       stations: await stationStore.getStationByUserId(loggedInUser._id),
     };
+    //delete all stations associated with user
     for (const station of stationsToDelete.stations) {
       await stationStore.deleteStationById(station._id);
     };
-
+    //delete user
     await userStore.deleteUserById(loggedInUser._id);
-
+    //clear cookie and redirect to home
     response.cookie("LoggedInUser", "");
     response.redirect("/");
   },
