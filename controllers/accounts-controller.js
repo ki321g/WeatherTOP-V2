@@ -199,6 +199,11 @@ export const accountsController = {
    */
   async deleteUser(request, response) {
     const loggedInUser = await accountsController.getLoggedInUser(request);
+
+    let loggedInUserString = JSON.stringify(loggedInUser); // Debug Remove Later
+    let loggedInUserObject = JSON.parse(loggedInUserString); // Debug Remove Later
+    console.dir(loggedInUserObject, { depth: null, colors: true }); // Debug Remove Later
+    
     //create object to store user stations to delete
     const stationsToDelete = {
       stations: await stationStore.getStationByUserId(loggedInUser._id),
