@@ -1,4 +1,5 @@
-/readme/images/
+models/*.json
+readme/images/
 README.md
 node_modules/
 .vscode

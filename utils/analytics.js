@@ -12,7 +12,7 @@ export const analytics = {
    * minMaxReadings() - This method finds the min or max of a reading type
    *
    * The following parameters are passed into the method in the request body:
-   * @param stationReadings array of all readings for specific reading type for the station 
+   * @param stationReadings array of all readings for specific reading type for the station
    * @param minMax min or max to return
    *
    */
@@ -27,7 +27,7 @@ export const analytics = {
   },
 
   /**
-   * temperatureTrend() - Returns the current Temperature trend if any
+   * readingTrends() - Returns the current trend if any
    *
    * @param readings list of readings
    * @return String of higher, lower or no-change
@@ -50,8 +50,5 @@ export const analytics = {
     } else {
       return "no-change";
     }
-  }
-
+  },
 };
-
-  

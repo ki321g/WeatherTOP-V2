@@ -405,7 +405,7 @@ export const conversions = {
   codeLabel(code) {
     return weatherCodeMap.get(code).description;
   },
-  
+   
   /**
    * codeIcon() -  gets wind speed label
    *
